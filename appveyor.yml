@@ -9,7 +9,7 @@ install:
   - ps: Install-Product node $env:nodejs_version
   # install modules
   - npm --version
-  - npm install
+  - npm install -dd
 # Post-install test scripts.
 test_script:
   # Output useful info for debugging.
