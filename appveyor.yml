@@ -1,7 +1,5 @@
 version: 1.0.{build}
 image: Visual Studio 2015
-init:
-- ps: Write-host $env:TSD_GITHUB_TOKEN
 build:
   verbosity: minimal
 artifacts:
@@ -11,6 +9,9 @@ artifacts:
   name: deployps1
 - path: ProjectA\bin\Debug\ProjectA.dll
   name: ProjectAdll
+  
+init:
+- ps: Write-host $env:TSD_GITHUB_TOKEN
 environment:
   TSD_GITHUB_TOKEN:
     secure: 3o+i2d6yzGSu4/Kv/+PDRXNJb2R0wVtjjqhuzmpu+kRmRGYM9Ph3+ppLbT2sLmSM
