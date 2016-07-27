@@ -4,9 +4,9 @@ build:
   verbosity: minimal
 artifacts:
 - path: ProjectA
-  name: ProjectA
+  name: ProjectAe
 - path: ProjectA\deploy.ps1
-  name: deployps1
+  name: deployps1e
 - path: ProjectA\bin\Debug\ProjectA.dll
   name: ProjectAdll
   
