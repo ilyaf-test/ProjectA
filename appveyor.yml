@@ -11,6 +11,6 @@ artifacts:
   name: deployps1
 - path: ProjectA\bin\Debug\ProjectA.dll
   name: ProjectAdll
- environment:
+environment:
   TSD_GITHUB_TOKEN:
     secure: 3o+i2d6yzGSu4/Kv/+PDRXNJb2R0wVtjjqhuzmpu+kRmRGYM9Ph3+ppLbT2sLmSM
