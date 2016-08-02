@@ -13,7 +13,7 @@ artifacts:
 init:
 - ps: Write-host $env:TSD_GITHUB_TOKEN
 - choco install nasm 
-- SET PATH="%ProgramFiles%\NASM;%PATH%" 
+- SET PATH=%ProgramFiles%\NASM;%PATH%
 - PATH 
 - ps: gci -Path "C:/Program Files/NASM" 
 - nasm.exe -help
