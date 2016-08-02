@@ -10,13 +10,13 @@ artifacts:
 - path: ProjectA\bin\Debug\ProjectA.dll
   name: ProjectAdll
   
-init:
-- ps: Write-host $env:TSD_GITHUB_TOKEN
-- choco install nasm 
-- SET PATH=%ProgramFiles%\NASM;%PATH%
-- PATH 
-- ps: gci -Path "C:/Program Files/NASM" 
-- nasm.exe -help
+install:
+  # Install nasm (for openssl)
+  - choco install nasm
+  - SET PATH=%ProgramFiles%\NASM;%PATH%
+  - PATH
+  - ps: gci -Path "C:/Program Files/NASM"
+  - nasm
 
 environment:
   TSD_GITHUB_TOKEN:
