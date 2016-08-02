@@ -16,7 +16,7 @@ install:
   - SET PATH=%ProgramFiles%\NASM;%PATH%
   - PATH
   - ps: gci -Path "C:/Program Files/NASM"
-  - nasm
+  - nasm -help
 
 environment:
   TSD_GITHUB_TOKEN:
