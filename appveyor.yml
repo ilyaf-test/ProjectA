@@ -1,23 +1,25 @@
-version: 1.0.{build}
+version: 1.0.real.{build}
 image: Visual Studio 2015
-build:
-  verbosity: minimal
-artifacts:
-- path: ProjectA
-  name: ProjectAe
-- path: ProjectA\deploy.ps1
-  name: deployps1e
-- path: ProjectA\bin\Debug\ProjectA.dll
-  name: ProjectAdll
-  
-install:
-  # Install nasm (for openssl)
-  - choco install nasm
-  - SET PATH=%ProgramFiles%\NASM;%PATH%
-  - PATH
-  - ps: gci -Path "C:/Program Files/NASM"
-  - nasm -help
 
 environment:
-  TSD_GITHUB_TOKEN:
-    secure: 3o+i2d6yzGSu4/Kv/+PDRXNJb2R0wVtjjqhuzmpu+kRmRGYM9Ph3+ppLbT2sLmSM
+  myCondition: true
+
+build_script:
+- ps: if ($mycondition) {Write-host "Custom build"}
+
+artifacts:
+- path: ProjectA
+  name: ProjectA
+  
+deploy_script:
+- ps: if ($myCondition) {Write-host "Custom deployment"}
+
+deploy:
+- provider: FTP
+  host: ftp.foo.bar
+  protocol: ftp
+  username: user1
+  password:
+    secure: blabla
+  on:
+    myCondition: true
