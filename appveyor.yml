@@ -1,27 +1,4 @@
 version: 1.0.real.{build}
 image: Visual Studio 2015
 
-environment:
-  myCondition: true
 
-build_script:
-on_finish:
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-- ps: if ($mycondition) {Write-host "Custom build"}
-
-artifacts:
-- path: ProjectA
-  name: ProjectA
-  
-deploy_script:
-- ps: if ($myCondition) {Write-host "Custom deployment"}
-
-deploy:
-- provider: FTP
-  host: ftp.foo.bar
-  protocol: ftp
-  username: user1
-  password:
-    secure: blabla
-  on:
-    myCondition: true
