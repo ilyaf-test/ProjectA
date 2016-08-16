@@ -1,4 +1,12 @@
 version: 1.0.real.{build}
 image: Visual Studio 2015
-
-
+before_build:
+- cmd: >-
+    echo %cd%
+    echo %APPVEYOR_BUILD_FOLDER%
+    dir
+    cd src
+build:
+  project: src\ProjectA.sln
+  verbosity: minimal
+deploy: off
