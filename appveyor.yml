@@ -1,5 +1,8 @@
 version: 1.0.real.{build}
 image: Visual Studio 2015
+init:
+- ps: Write-host "Starting sleep..."
+- ps: Start-sleep 30
 before_build:
 - cmd: >-
     echo %cd%
