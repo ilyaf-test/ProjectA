@@ -14,6 +14,6 @@ namespace ProjectA
         {
             this.MyPropertyA = myPropertyA;
         }
-        //
+        
     }
 }
