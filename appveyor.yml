@@ -22,8 +22,11 @@ build:
   # Relative path folder with solutions file - passed
   #project: src
   
-  # Relative path folder with project file
-  project: src\ProjectA
+  # Relative path to solutions file - passed
+  project: src\ProjectA\ProjectA.csproj
+  
+  # Relative path folder with project file - passed
+  #project: src\ProjectA
   
   verbosity: minimal
 deploy: off
