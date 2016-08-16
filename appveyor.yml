@@ -16,6 +16,7 @@ before_build:
     echo %cd%
     
 build:
-  project: src\ProjectA.sln
+  #project: src\ProjectA.sln
+  project: src
   verbosity: minimal
 deploy: off
