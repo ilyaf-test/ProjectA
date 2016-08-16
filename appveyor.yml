@@ -3,10 +3,15 @@ image: Visual Studio 2015
 before_build:
 - cmd: >-
     echo %cd%
+    
     echo %APPVEYOR_BUILD_FOLDER%
+    
     dir
+    
     cd src
+    
     echo %cd%
+    
 build:
   project: src\ProjectA.sln
   verbosity: minimal
