@@ -6,6 +6,7 @@ before_build:
     echo %APPVEYOR_BUILD_FOLDER%
     dir
     cd src
+    echo %cd%
 build:
   project: src\ProjectA.sln
   verbosity: minimal
