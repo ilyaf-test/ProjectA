@@ -1,19 +1,14 @@
 version: 1.0.real.{build}
 image: Visual Studio 2015
+
 init:
-- ps: Write-host "Starting sleep..."
+- ps: Write-host "Starting sleep, look process ID, attach debugger..."
 - ps: Start-sleep 30
+
 before_build:
-- cmd: >-
-    echo %cd%
-    
-    echo %APPVEYOR_BUILD_FOLDER%
-    
-    dir
-    
-    cd src
-    
-    echo %cd%
+#intentionally changing current dir level down
+- cmd: cd src
+- cmd: echo %cd%
     
 build:
   # Relative path to solutions file - passed
