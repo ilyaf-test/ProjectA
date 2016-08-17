@@ -18,10 +18,13 @@ build:
   #project: src
   
   # Relative path to solutions file - passed
-  project: src\ProjectA\ProjectA.csproj
+  # project: src\ProjectA\ProjectA.csproj
   
   # Relative path folder with project file - passed
   #project: src\ProjectA
+  
+  # Check if it will regress for somebody who set absolute path
+  project: c:\projects2\projecta-iasutr5hs65tagxt\src\ProjectA\ProjectA.csproj
   
   verbosity: minimal
 deploy: off
