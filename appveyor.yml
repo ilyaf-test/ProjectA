@@ -1,5 +1,6 @@
 version: 1.0.real.{build}
 image: Visual Studio 2015
+# <<<<<<< HEAD
 #init:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
@@ -8,10 +9,36 @@ install:
 
 
     powershell -encodedCommand JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQA9ACIAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQAiADsAZABpAHIAIAAiAGMAOgBcAHAAcgBvAGcAcgBhAG0AIABmAGkAbABlAHMAIgAgAA==
-build:
-  project: src\ProjectA.sln
-  verbosity: minimal
-# artifacts:
-# - path: ProjectA
-  # name: ProjectA
-deploy: off
+# =======
+
+# init:
+# - ps: Write-host "Starting sleep, look process ID, attach debugger..."
+# - ps: Start-sleep 30
+
+# before_build:
+# #intentionally changing current dir level down
+# - cmd: cd src
+# - cmd: echo %cd%
+    
+# >>>>>>> origin/master
+# build:
+  # # Relative path to solutions file - passed
+  # #project: src\ProjectA.sln
+  
+  # # Relative path folder with solutions file - passed
+  # #project: src
+  
+  # # Relative path to solutions file - passed
+  # # project: src\ProjectA\ProjectA.csproj
+  
+  # # Relative path folder with project file - passed
+  # #project: src\ProjectA
+  
+  # # Check if it will regress for somebody who set absolute path
+  # project: c:\projects2\projecta-iasutr5hs65tagxt\src\ProjectA\ProjectA.csproj
+  
+  # verbosity: minimal
+# # artifacts:
+# # - path: ProjectA
+  # # name: ProjectA
+# deploy: off
