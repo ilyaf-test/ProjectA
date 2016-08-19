@@ -1,12 +1,17 @@
 version: 1.0.real.{build}
 image: Visual Studio 2015
-before_build:
+#init:
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+install:
 - cmd: >-
-    echo %cd%
-    echo %APPVEYOR_BUILD_FOLDER%
-    dir
-    cd src
+    powershell -encodedCommand ZABpAHIAIAAiAGMAOgBcAHAAcgBvAGcAcgBhAG0AIABmAGkAbABlAHMAIgAgAA==
+
+
+    powershell -encodedCommand JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQA9ACIAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQAiADsAZABpAHIAIAAiAGMAOgBcAHAAcgBvAGcAcgBhAG0AIABmAGkAbABlAHMAIgAgAA==
 build:
   project: src\ProjectA.sln
   verbosity: minimal
+# artifacts:
+# - path: ProjectA
+  # name: ProjectA
 deploy: off
