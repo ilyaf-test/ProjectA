@@ -1,5 +1,5 @@
 version: 1.0.real.{build}
-image: Visual Studio 2015
+image: Previous Visual Studio 2015
 #init:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
