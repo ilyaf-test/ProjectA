@@ -1,15 +1,32 @@
 version: 1.0.real.{build}
 image: Previous Visual Studio 2015
-init:
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+# init:
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
-- cmd: >-
-    powershell -NoProfile -encodedCommand JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQA7ACAAdwByAGkAdABlAC0AaABvAHMAdAAgACcAUAByAG8AZwByAGUAcwBzAFAAcgBlAGYAZQByAGUAbgBjAGUAIABoAGEAcwAgAGQAZQBmAGEAdQBsAHQAIABzAGUAdAB0AGkAbgBnAHMAJwA=
+- cmd: cd c:\tools
 
-    powershell -NoProfile -encodedCommand JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQA9ACcAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQAnADsAIAAkAFAAcgBvAGcAcgBlAHMAcwBQAHIAZQBmAGUAcgBlAG4AYwBlADsAIAB3AHIAaQB0AGUALQBoAG8AcwB0ACAAJwBQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQAgAGkAcwAgAHMAZQB0ACAAdABvACAAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQAnAA==
+- cmd: %cd%
+
+- cmd: dir
+
+- ps: Write-Verbose "Restart computer ..."
+
+- ps: Restart-Computer -ComputerName localhost -Force
+
+- ps: Start-Sleep -s 5
+
+- ps: Write-Verbose "Restart computer completed"
+
+- cmd: %cd%
+
+- cmd: dir
+ 
 build: off
 
+#   powershell -NoProfile -encodedCommand JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQA7ACAAdwByAGkAdABlAC0AaABvAHMAdAAgACcAUAByAG8AZwByAGUAcwBzAFAAcgBlAGYAZQByAGUAbgBjAGUAIABoAGEAcwAgAGQAZQBmAGEAdQBsAHQAIABzAGUAdAB0AGkAbgBnAHMAJwA=
 
+ #   powershell -NoProfile -encodedCommand JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQA9ACcAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQAnADsAIAAkAFAAcgBvAGcAcgBlAHMAcwBQAHIAZQBmAGUAcgBlAG4AYwBlADsAIAB3AHIAaQB0AGUALQBoAG8AcwB0ACAAJwBQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQAgAGkAcwAgAHMAZQB0ACAAdABvACAAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQAnAA==
+ 
 
 # init:
 # - ps: Write-host "Starting sleep, look process ID, attach debugger..."
