@@ -1,38 +1,23 @@
 version: 1.0.real.{build}
 image: Visual Studio 2015
 
-init:
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-
 install:
-- cmd: cd c:\tools
-
-- cmd: echo %cd%
-
-- cmd: echo "diplay APPVEYOR_BUILD_FOLDER"
-
-- cmd: echo %APPVEYOR_BUILD_FOLDER%
-
-- cmd: dir
-
-- ps: Write-Host "Restart computer ..."
-
-- ps: Start-sleep 20
-
-- ps: Restart-Computer -ComputerName localhost -Force
-
-- ps: Start-Sleep -s 5
-
-- ps: Write-Host "Restart computer completed"
-
-- cmd: echo "diplay APPVEYOR_BUILD_FOLDER"
-
-- cmd: echo %APPVEYOR_BUILD_FOLDER%
-
-- cmd: echo %cd%
-
-- cmd: dir
- 
+- ps: |
+    
+    Install-WindowsFeature -Name DNS -IncludeManagementTools
+    
+    Install-WindowsFeature -Name DHCP -IncludeManagementTools
+    
+    Add-DnsServerPrimaryZone -Name foo.bar -ZoneFile foo.bar.dns
+    
+    Add-DhcpServerv4Scope -Name TestScope -StartRange 192.168.1.100 -EndRange 192.168.1.110 -SubnetMask 255.255.255.0
+    
+    $ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -like '*ethernet*'}).IPAddress
+    
+    Set-DHCPServerv4OptionValue -DnsDomain foo.bar -DnsServer $ip
+    
+    $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+    
 build: off
 
 #   powershell -NoProfile -encodedCommand JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQA7ACAAdwByAGkAdABlAC0AaABvAHMAdAAgACcAUAByAG8AZwByAGUAcwBzAFAAcgBlAGYAZQByAGUAbgBjAGUAIABoAGEAcwAgAGQAZQBmAGEAdQBsAHQAIABzAGUAdAB0AGkAbgBnAHMAJwA=
