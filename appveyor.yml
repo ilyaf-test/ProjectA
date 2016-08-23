@@ -6,6 +6,8 @@ install:
 
 - cmd: echo %cd%
 
+- cmd: echo "diplay APPVEYOR_BUILD_FOLDER"
+
 - cmd: echo %APPVEYOR_BUILD_FOLDER%
 
 - cmd: dir
@@ -19,6 +21,10 @@ install:
 - ps: Start-Sleep -s 5
 
 - ps: Write-Host "Restart computer completed"
+
+- cmd: echo "diplay APPVEYOR_BUILD_FOLDER"
+
+- cmd: echo %APPVEYOR_BUILD_FOLDER%
 
 - cmd: echo %cd%
 
