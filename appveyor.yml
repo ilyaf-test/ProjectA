@@ -16,7 +16,7 @@ install:
 
 - ps: Write-Verbose "Restart computer completed"
 
-- cmd: %cd%
+- cmd: echo %cd%
 
 - cmd: dir
  
