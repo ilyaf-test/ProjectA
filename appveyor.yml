@@ -8,13 +8,13 @@ install:
 
 - cmd: dir
 
-- ps: Write-Verbose "Restart computer ..."
+- ps: Write-Host "Restart computer ..."
 
 - ps: Restart-Computer -ComputerName localhost -Force
 
 - ps: Start-Sleep -s 5
 
-- ps: Write-Verbose "Restart computer completed"
+- ps: Write-Host "Restart computer completed"
 
 - cmd: echo %cd%
 
