@@ -4,9 +4,9 @@ image: Visual Studio 2015
 install:
 - ps: |
     
-    Install-WindowsFeature -Name DNS -IncludeManagementTools
+    Install-WindowsFeature -Name DNS -IncludeManagementTools -WarningAction SilentlyContinue
     
-    Install-WindowsFeature -Name DHCP -IncludeManagementTools
+    Install-WindowsFeature -Name DHCP -IncludeManagementTools -WarningAction SilentlyContinue
     
     Add-DnsServerPrimaryZone -Name foo.bar -ZoneFile foo.bar.dns
     
