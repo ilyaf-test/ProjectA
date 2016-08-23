@@ -6,6 +6,8 @@ install:
 
 - cmd: echo %cd%
 
+- cmd: echo %APPVEYOR_BUILD_FOLDER%
+
 - cmd: dir
 
 - ps: Write-Host "Restart computer ..."
