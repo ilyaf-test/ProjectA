@@ -10,6 +10,8 @@ install:
 
 - ps: Write-Host "Restart computer ..."
 
+- ps: Start-sleep 20
+
 - ps: Restart-Computer -ComputerName localhost -Force
 
 - ps: Start-Sleep -s 5
