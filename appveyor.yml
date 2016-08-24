@@ -1,23 +1,6 @@
 version: 1.0.real.{build}
 image: Visual Studio 2015
 
-install:
-- ps: |
-    
-    Install-WindowsFeature -Name DNS -IncludeManagementTools -WarningAction SilentlyContinue
-    
-    Install-WindowsFeature -Name DHCP -IncludeManagementTools -WarningAction SilentlyContinue
-    
-    Add-DnsServerPrimaryZone -Name foo.bar -ZoneFile foo.bar.dns
-    
-    Add-DhcpServerv4Scope -Name TestScope -StartRange 192.168.1.100 -EndRange 192.168.1.110 -SubnetMask 255.255.255.0
-    
-    $ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -like '*ethernet*'}).IPAddress
-    
-    Set-DHCPServerv4OptionValue -DnsDomain foo.bar -DnsServer $ip
-    
-    $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-    
 build: off
 
 #   powershell -NoProfile -encodedCommand JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQA7ACAAdwByAGkAdABlAC0AaABvAHMAdAAgACcAUAByAG8AZwByAGUAcwBzAFAAcgBlAGYAZQByAGUAbgBjAGUAIABoAGEAcwAgAGQAZQBmAGEAdQBsAHQAIABzAGUAdAB0AGkAbgBnAHMAJwA=
