@@ -3,8 +3,8 @@ image: Visual Studio 2015
 
 build: off
 install:
-  - ps: [System.IO.File]::WriteAllText(".\version.txt", $env:APPVEYOR_REPO_COMMIT)
-#artifacts:
-# - path: version.txt
-#    name: version
+  - ps: '[System.IO.File]::WriteAllText(".\version.txt", $env:APPVEYOR_REPO_COMMIT)'
+artifacts:
+ - path: version.txt
+   name: version
 
