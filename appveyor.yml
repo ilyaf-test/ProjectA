@@ -3,4 +3,4 @@ image: Visual Studio 2015
 
 build: off
 install:
-    -ps: [System.IO.File]::WriteAllText(".\version.txt", $env:username)
+  -ps: [System.IO.File]::WriteAllText(".\version.txt", $env:username)
