@@ -4,39 +4,3 @@ image: Visual Studio 2015
 build: off
 install:
     IF %APPVEYOR_REPO_BRANCH%==master echo master
-#   powershell -NoProfile -encodedCommand JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQA7ACAAdwByAGkAdABlAC0AaABvAHMAdAAgACcAUAByAG8AZwByAGUAcwBzAFAAcgBlAGYAZQByAGUAbgBjAGUAIABoAGEAcwAgAGQAZQBmAGEAdQBsAHQAIABzAGUAdAB0AGkAbgBnAHMAJwA=
-
- #   powershell -NoProfile -encodedCommand JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQA9ACcAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQAnADsAIAAkAFAAcgBvAGcAcgBlAHMAcwBQAHIAZQBmAGUAcgBlAG4AYwBlADsAIAB3AHIAaQB0AGUALQBoAG8AcwB0ACAAJwBQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQAgAGkAcwAgAHMAZQB0ACAAdABvACAAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQAnAA==
- 
-
-# init:
-# - ps: Write-host "Starting sleep, look process ID, attach debugger..."
-# - ps: Start-sleep 30
-
-# before_build:
-# #intentionally changing current dir level down
-# - cmd: cd src
-# - cmd: echo %cd%
-    
-# >>>>>>> origin/master
-# build:
-  # # Relative path to solutions file - passed
-  # #project: src\ProjectA.sln
-  
-  # # Relative path folder with solutions file - passed
-  # #project: src
-  
-  # # Relative path to solutions file - passed
-  # # project: src\ProjectA\ProjectA.csproj
-  
-  # # Relative path folder with project file - passed
-  # #project: src\ProjectA
-  
-  # # Check if it will regress for somebody who set absolute path
-  # project: c:\projects2\projecta-iasutr5hs65tagxt\src\ProjectA\ProjectA.csproj
-  
-  # verbosity: minimal
-# # artifacts:
-# # - path: ProjectA
-  # # name: ProjectA
-# deploy: off
