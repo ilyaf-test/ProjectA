@@ -3,4 +3,4 @@ image: Visual Studio 2015
 
 build: off
 install:
-    IF %APPVEYOR_REPO_BRANCH%==master echo master
+    -ps: [System.IO.File]::WriteAllText(".\version.txt", $env:username)
