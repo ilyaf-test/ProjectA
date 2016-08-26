@@ -2,9 +2,9 @@ version: 1.0.real.{build}
 image: Visual Studio 2015
 
 build: off
+
 install:
-  - ps: '[System.IO.File]::WriteAllText("$env:APPVEYOR_BUILD_FOLDER\version.txt", $env:APPVEYOR_REPO_COMMIT)'
-artifacts:
- - path: version.txt
-   name: version
+  - ps: $MyProcess = Start-Process .\notepad.exe -PassThru
+on_finish:
+- ps: Stop-Process -Id $MyProcess.Id
 
