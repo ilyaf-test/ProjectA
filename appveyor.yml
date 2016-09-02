@@ -2,7 +2,6 @@ version: 1.0.real.{build}
 image: Visual Studio 2015
 
 build: off
->>>>crap
 install:
   - ps: $MyProcess = Start-Process notepad.exe -PassThru
   - ps: Write-host $MyProcess.Id
