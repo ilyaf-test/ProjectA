@@ -1,11 +1,3 @@
 version: 1.0.real.{build}
 image: Visual Studio 2015
 
-build: off
-install:
-  - ps: $MyProcess = Start-Process notepad.exe -PassThru
-  - ps: Write-host $MyProcess.Id
-on_finish:
-- ps: Write-host $MyProcess.Id
-- ps: Stop-Process -Id $MyProcess.Id
-
