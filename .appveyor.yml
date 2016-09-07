@@ -1,6 +1,6 @@
 version: 1.0.22.{build}
 image: Visual Studio 2015
-clone_folder: $(GOPATH)\src\site\org\project
+clone_folder: $(HOMEDRIVE)$(HOMEPATH)\go\src\site\org\project
 init:
 - ps: >-
     write-host "waiting for debugger"
