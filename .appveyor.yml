@@ -1,3 +1,8 @@
-version: 1.0.real.{build}
+version: 1.0.22.{build}
 image: Visual Studio 2015
-
+clone_folder: $(GOPATH)\src\site\org\project
+environment:
+  GOPATH: $(HOMEDRIVE)$(HOMEPATH)\go
+build:
+  project: src\ProjectA.sln
+  verbosity: minimal
