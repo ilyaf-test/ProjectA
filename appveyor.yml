@@ -19,5 +19,3 @@
   build:
       project: src\ProjectA.sln
       verbosity: minimal
-  
-  skip_tags: true
