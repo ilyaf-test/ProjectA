@@ -3,11 +3,13 @@ skip_tags: true
 image: Visual Studio 2015
 environment:
   matrix:
-  - configuration: Debug
-    platform: x86
-  - configuration: Release
-    platform: x64
-  
+    platform:
+      - x86
+      - Any CPU
+    configuration:
+      - Debug
+      - Release
+      
 build:
   project: src\ProjectA.sln
   verbosity: minimal
