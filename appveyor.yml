@@ -1,7 +1,7 @@
 -
   branches:
     only:
-      - master
+      - master*
 
   configuration: Release
 
@@ -12,7 +12,7 @@
 -
   branches:
     only:
-      - dev
+      - dev*
 
   configuration: Debug
 
@@ -21,6 +21,3 @@
       verbosity: minimal
   
   skip_tags: true
-
--
-  configuration: Debug
