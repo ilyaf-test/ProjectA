@@ -1,14 +1,14 @@
 version: 2.0.0.{build}-{branch}
 skip_tags: true
 image: Visual Studio 2015
-environment:
-  matrix:
-    platform:
-      - x86
-      - Any CPU
-    configuration:
-      - Debug
-      - Release
+
+platform:
+  - x86
+  - Any CPU
+
+configuration:
+  - Debug
+  - Release
       
 build:
   project: src\ProjectA.sln
