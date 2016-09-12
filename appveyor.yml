@@ -16,8 +16,10 @@
       - dev
 
   configuration: Debug
-  deploy: 
 
   build:
       project: src\ProjectA.sln
       verbosity: minimal
+
+-
+  configuration: Debug
