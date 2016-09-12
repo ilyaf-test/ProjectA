@@ -5,7 +5,7 @@ image: Visual Studio 2015
 environment: 
   matrix: 
     - configuration: Debug
-      platform: x86 
+      platform: x64
       
     - configuration: Release
       platform: x64 
