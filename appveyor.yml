@@ -8,6 +8,8 @@
   build:
       project: src\ProjectA.sln
       verbosity: minimal
+  
+  appveyor_repo_tag: true
 
 -
   branches:
@@ -19,6 +21,8 @@
   build:
       project: src\ProjectA.sln
       verbosity: minimal
+  
+  skip_tags: true
 
 -
   configuration: Debug
