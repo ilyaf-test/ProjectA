@@ -1,14 +1,15 @@
 version: 2.0.0.{build}-{branch}
 image: Visual Studio 2015
 
-platform:
-  - x86
-  - Any CPU
 
-configuration:
-  - Debug
-  - Release
+environment: 
+  matrix: 
+    - configuration: Debug
+      platform: x86 
       
+    - configuration: Release
+      platform: x64 
+
 build:
   project: src\ProjectA.sln
   verbosity: minimal
