@@ -1,10 +1,9 @@
 -
   branches:
     only:
-      - master
+      - master*
 
   configuration: Release
-  skip_tags: true
 
   build:
       project: src\ProjectA.sln
@@ -13,11 +12,12 @@
 -
   branches:
     only:
-      - dev
+      - dev*
 
   configuration: Debug
-  deploy: 
 
   build:
       project: src\ProjectA.sln
       verbosity: minimal
+  
+  skip_tags: true
