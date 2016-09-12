@@ -1,21 +1,10 @@
--
-  branches:
-    only:
-      - master*
-
-  configuration: Release
-
-  build:
-      project: src\ProjectA.sln
-      verbosity: minimal
-
--
-  branches:
-    only:
-      - dev*
-
-  configuration: Debug
-
-  build:
-      project: src\ProjectA.sln
-      verbosity: minimal
+version: 2.0.0.{build}-{branch}
+skip_tags: true
+image: Visual Studio 2015
+environment:
+  matrix:
+  - configuration: Debug
+  - configuration: Release 
+build:
+  project: src\ProjectA.sln
+  verbosity: minimal
