@@ -5,7 +5,7 @@ image: Visual Studio 2015
 environment: 
   matrix: 
     - configuration: Debug
-      #skip_tags: true
+      skip_tags: true
       #platform: x64
       
     - configuration: Release
