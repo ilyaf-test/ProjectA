@@ -1,6 +1,8 @@
 install:
   - set TEST_VAR=Hello, world!
   - echo before reboot
+  - ps: (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Virtual Machine\Guest\Parameters' -Name "HostName").HostName
+  - ps: Start-Sleep -s 10
   - ps: Restart-Computer -Force      # here the server goes restarting
   - ps: Start-Sleep -s 10
 
