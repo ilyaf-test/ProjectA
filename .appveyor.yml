@@ -1,11 +1,11 @@
 install:
   - ps: Write-Host "w/o noprofile"
   - ps: Write-Host "`n"
-  - cmd: powershell.exe -encodedCommand ZABpAHIAIAAiAGMAOgBcACoAcAByAG8AagAqACIAIAA=
+  - cmd: powershell.exe -noprofile -encodedCommand ZABpAHIAIAAiAGMAOgBcACoAcAByAG8AagAqACIAIAA=
   - ps: Write-Host "`n"
   - ps: Write-Host "with nprofile"
   - ps: Write-Host "`n"
-  - cmd: powershell.exe -noprofile -encodedCommand ZABpAHIAIAAiAGMAOgBcACoAcAByAG8AagAqACIAIAA=
+  - cmd: powershell.exe -encodedCommand ZABpAHIAIAAiAGMAOgBcACoAcAByAG8AagAqACIAIAA=
   - ps: Write-Host "`n"
 
 build: off
