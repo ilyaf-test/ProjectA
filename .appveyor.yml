@@ -1,16 +1,19 @@
-install:
-  - ps: Write-Host "w/o noprofile"
-  - ps: Write-Host "`n"
-  - cmd: powershell.exe -noprofile -encodedCommand ZABpAHIAIAAiAGMAOgBcACoAcAByAG8AagAqACIAIAA=
-  - ps: Write-Host "`n"
-  - ps: Write-Host "with nprofile"
-  - ps: Write-Host "`n"
-  - cmd: powershell.exe -encodedCommand ZABpAHIAIAAiAGMAOgBcACoAcAByAG8AagAqACIAIAA=
-  - ps: Write-Host "`n"
+-
+    version: 2.0.0.{build}-{branch}
+  
+    branches:
+      only:
+        - master
 
-build: off
-test: off
-deploy: off
+    build:
+      project: src\ProjectA.sln
+      publish_nuget: true
+      verbosity: minimal  
 
-#on_finsih:
- # - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+-
+    version: 2.0.0.{build}-{branch}
+
+    build:
+      project: src\ProjectA.sln
+      publish_nuget: false
+      verbosity: minimal  
