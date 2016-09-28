@@ -7,7 +7,7 @@
         - develop
     
     install:
-    - ps: 'Write-host "Top config. Branch: " + $env:APPVEYOR_REPO_BRANCH'
+    - ps: 'Write-host "Top config. Branch: "$env:APPVEYOR_REPO_BRANCH'
     
     build: off
 
@@ -15,6 +15,6 @@
     version: 2.0.0.{build}-{branch}
 
     install:
-    - ps: 'Write-host "Bottom config. Branch: " + $env:APPVEYOR_REPO_BRANCH'
+    - ps: 'Write-host "Bottom config. Branch: "$env:APPVEYOR_REPO_BRANCH'
     
     build: off
