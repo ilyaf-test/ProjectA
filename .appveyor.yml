@@ -4,7 +4,12 @@
     branches:
       only:
         - master
+        - develop
 
+    
+    install:
+      - ps: Write-host "Branch: " + $env:APPVEYOR_REPO_BRANCH
+    
     build:
       project: src\ProjectA.sln
       publish_nuget: true
