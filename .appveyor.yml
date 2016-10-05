@@ -1,20 +1,9 @@
--
-    version: 2.0.0.{build}-{branch}
+version: 2.0.0.{build}-{branch}
+
+init:
+  - set CURL=curl -fsSL -O -m 300
+
+install:
+  - cmd: %CURL% <url>
   
-    branches:
-      only:
-        - master
-        - /\d\.\d\.\d{1,3}
-    
-    install:
-    - ps: 'Write-host "Top config. Branch: "$env:APPVEYOR_REPO_BRANCH'
-    
-    build: off
-
--
-    version: 2.0.0.{build}-{branch}
-
-    install:
-    - ps: 'Write-host "Bottom config. Branch: "$env:APPVEYOR_REPO_BRANCH'
-    
-    build: off
+build: off
