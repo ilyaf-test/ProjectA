@@ -1,2 +1,11 @@
-version: 2.0.0.{build}-{branch}
+version: 1.0.{build}
 build: off
+notifications:
+- provider: Webhook
+  url: http://test.local:1234/
+  method: POST
+  custom_request_body_content_type: text/plain
+  custom_request_body: My plain text
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
