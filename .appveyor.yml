@@ -1,9 +1,2 @@
 version: 2.0.0.{build}-{branch}
-
-init:
-  - set CURL=curl --resolve
-
-install:
-  - cmd /c %CURL% www.example.org:80:127.0.0.1 http://www.example.org/
-  
 build: off
