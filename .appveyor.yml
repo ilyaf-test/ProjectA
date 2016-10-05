@@ -4,6 +4,6 @@ init:
   - set CURL=curl -fsSL -O -m 300
 
 install:
-  - start %CURL% <url>
+  - cmd /c %CURL% http://appveyor.com
   
 build: off
