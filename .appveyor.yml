@@ -5,7 +5,7 @@ notifications:
   url: http://test.local:1234/
   method: POST
   custom_request_body_content_type: text/plain
-  custom_request_body: My plain text
+  custom_request_body: My plain text 2
   on_build_success: true
   on_build_failure: true
   on_build_status_changed: true
