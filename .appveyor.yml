@@ -10,6 +10,6 @@ deploy:
   password:
     secure: JqjMdWRH22nh8HpJCv3zVQ==
   artifact: VeryNewWebJob
-  continuous: false
+  continuous: true
   triggered: false
   job_schedule: '*0****'
