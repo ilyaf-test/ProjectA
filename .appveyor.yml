@@ -1,11 +1,15 @@
 version: 1.0.{build}
 build: off
-notifications:
-- provider: Webhook
-  url: http://test.local:1234/
-  method: POST
-  custom_request_body_content_type: text/plain
-  custom_request_body: My plain text 2
-  on_build_success: true
-  on_build_failure: true
-  on_build_status_changed: true
+artifacts:
+- path: src\VeryNewWebJob
+  name: VeryNewWebJob
+deploy:
+- provider: AzureWebJob
+  website: ilyaf
+  username: ilyafdepl
+  password:
+    secure: JqjMdWRH22nh8HpJCv3zVQ==
+  artifact: VeryNewWebJob
+  continuous: false
+  triggered: true
+  job_schedule: '*0****'
