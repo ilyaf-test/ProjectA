@@ -11,4 +11,4 @@ deploy:
     secure: JqjMdWRH22nh8HpJCv3zVQ==
   artifact: VeryNewWebJob
 #  manually_triggered: false
-#  job_schedule: '*0****'
+  job_schedule: '*0****'
