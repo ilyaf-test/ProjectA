@@ -10,5 +10,5 @@ deploy:
   password:
     secure: JqjMdWRH22nh8HpJCv3zVQ==
   artifact: VeryNewWebJob
-  manually_triggered: true
+  manually_triggered: false
   job_schedule: '*0****'
