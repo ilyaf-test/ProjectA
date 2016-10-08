@@ -1,5 +1,4 @@
 version: 1.0.{build}
-build: off
 artifacts:
 - path: src\VeryNewWebJob
   name: VeryNewWebJob
@@ -10,6 +9,5 @@ deploy:
   password:
     secure: JqjMdWRH22nh8HpJCv3zVQ==
   artifact: VeryNewWebJob
-  #continuous: true
-  triggered: true
-  #job_schedule: '*0****'
+  manually_triggered: false
+  job_schedule: '*0****'
