@@ -1,24 +1,6 @@
 version: 1.0.{build}
 
-#artifacts:
-#- path: src\VeryNewWebJob
-#  name: VeryNewWebJob
-
 build: off
-
-#deploy:
-#- provider: AzureWebJob
-#  website: ilyaf
-#  username: ilyafdepl
-#  password:
-#    secure: JqjMdWRH22nh8HpJCv3zVQ==
-#  artifact: VeryNewWebJob
-#  manually_triggered: false
-#  job_schedule: '*0****'
-
-#environment:
-#  API_KEY:
-#    secure: 9vNz+tHM2nuER4MTf+iIbg==
 
 notifications:
 - provider: Webhook
@@ -34,4 +16,26 @@ notifications:
   on_build_success: true
   on_build_failure: true
   on_build_status_changed: true
+
+
+#artifacts:
+#- path: src\VeryNewWebJob
+#  name: VeryNewWebJob
+
+
+
+#deploy:
+#- provider: AzureWebJob
+#  website: ilyaf
+#  username: ilyafdepl
+#  password:
+#    secure: JqjMdWRH22nh8HpJCv3zVQ==
+#  artifact: VeryNewWebJob
+#  manually_triggered: false
+#  job_schedule: '*0****'
+
+#environment:
+#  API_KEY:
+#    secure: 9vNz+tHM2nuER4MTf+iIbg==
+
 
