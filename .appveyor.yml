@@ -1,8 +1,11 @@
 version: 1.0.{build}
+
 artifacts:
 - path: src\VeryNewWebJob
   name: VeryNewWebJob
+
 build: off
+
 deploy:
 - provider: AzureWebJob
   website: ilyaf
@@ -12,3 +15,23 @@ deploy:
   artifact: VeryNewWebJob
 #  manually_triggered: false
   job_schedule: '*0****'
+
+environment:
+  API_KEY:
+    secure: 9vNz+tHM2nuER4MTf+iIbg==
+
+notifications:
+- provider: Webhook
+  url: http://requestb.in/p7cjenp7
+  method: POST
+  headers:
+    X-Api-Key: 
+     secure: 9vNz+tHM2nuER4MTf+iIbg==
+  body: >-
+    {
+        "foo":  "bar"
+    }
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
+
