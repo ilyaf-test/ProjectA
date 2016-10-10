@@ -2,20 +2,26 @@ version: 1.0.{build}
 
 build: off
 
-notifications:
-- provider: Webhook
-  url: http://requestb.in/p7cjenp7
-  method: POST
-  headers:
-    X-Api-Key: 
-     secure: 9vNz+tHM2nuER4MTf+iIbg==
-  body: >-
-    {
-        "foo":  "bar"
-    }
-  on_build_success: true
-  on_build_failure: true
-  on_build_status_changed: true
+init:
+  - set CURL=curl -L
+
+install:
+  - '%CURL% google.com'
+
+#notifications:
+#- provider: Webhook
+#  url: http://requestb.in/p7cjenp7
+#  method: POST
+#  headers:
+#    X-Api-Key: 
+#     secure: 9vNz+tHM2nuER4MTf+iIbg==
+#  body: >-
+#    {
+#        "foo":  "bar"
+#    }
+#  on_build_success: true
+#  on_build_failure: true
+#  on_build_status_changed: true
 
 
 #artifacts:
