@@ -2,12 +2,6 @@ version: 1.0.{build}
 
 build: off
 
-init:
-  - set CURL=curl -L
-
-install:
-  - '%CURL% google.com'
-
 #notifications:
 #- provider: Webhook
 #  url: http://requestb.in/p7cjenp7
