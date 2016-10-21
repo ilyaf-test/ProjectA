@@ -9,7 +9,7 @@ namespace ProjectA
     public class ClassA
     {
         public int MyPropertyA { get; set; }
-        // super comment  wer ser
+        // original pull
         public ClassA(int myPropertyA)
         {
             this.MyPropertyA = myPropertyA;
