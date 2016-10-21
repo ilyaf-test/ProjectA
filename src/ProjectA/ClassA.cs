@@ -9,7 +9,7 @@ namespace ProjectA
     public class ClassA
     {
         public int MyPropertyA { get; set; }
-        // super comment
+        // super comment  wer
         public ClassA(int myPropertyA)
         {
             this.MyPropertyA = myPropertyA;
