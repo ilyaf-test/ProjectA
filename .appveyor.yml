@@ -2,6 +2,15 @@ version: 1.0.{build}
 
 build: off
 
+after_test:
+# powershell capture command output into variable
+- ps: $version = lxc version
+- ps: echo $version
+# pack lxc as aftifact for upload
+- ps: $archive = "lxc-$version-windows-amd64.zip"
+- 7z a $archive c:\gopath\bin\lxc.exe
+
+
 #notifications:
 #- provider: Webhook
 #  url: http://requestb.in/p7cjenp7
