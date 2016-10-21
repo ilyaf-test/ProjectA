@@ -9,7 +9,7 @@ namespace ProjectA
     public class ClassA
     {
         public int MyPropertyA { get; set; }
-        // original pulldssd
+        // pull
         public ClassA(int myPropertyA)
         {
             this.MyPropertyA = myPropertyA;
