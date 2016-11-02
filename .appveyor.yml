@@ -6,7 +6,7 @@ init:
   - ps: Write-Host "DEP is enabled? $depEnabled"
   - ps: Set-ExecutionPolicy Unrestricted -Force
   - ps: Write-Host "  Disabling DEP via bcdedit"
-  - ps: bcdedit /set {current} nx AlwaysOff
+  - cmd: bcdedit /set {current} nx AlwaysOff
   
   - ps: Write-Host "Creating marker folder"
   - ps: New-Item -Path c:\myfolder123 -ItemType Directory
