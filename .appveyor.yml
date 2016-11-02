@@ -17,14 +17,14 @@ init:
   - ps: Start-Sleep -s 5
 
 install:
-  - ps: Write-Host "After reboot"   
+  - ps: Write-Host "Install stage after reboot"   
   - ps: $cim = Get-CimInstance Win32_OperatingSystem
   - ps: $depEnabled = $cim.DataExecutionPrevention_SupportPolicy -eq 3
   - ps: Write-Host "DEP is enabled? $depEnabled"
   
   - ps: Write-Host "Testing that marker folder exist to ensure that it is the same VM"
-  - ps: Test-Path c:\myfolder123
-
+  - ps: $sameVm = Test-Path c:\myfolder123
+  - ps: Write-Host "Same VM? $sameVm"
 build: off
 
 #after_test:
