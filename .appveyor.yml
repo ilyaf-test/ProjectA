@@ -1,14 +1,39 @@
 version: 1.0.{build}
 
+init:
+  - ps: $cim = Get-CimInstance Win32_OperatingSystem
+  - ps: $depEnabled = $cim.DataExecutionPrevention_SupportPolicy -eq 3
+  - ps: Write-Host "DEP is enabled? $depEnabled"
+  - ps: Set-ExecutionPolicy Unrestricted -Force
+  - ps: Write-Host "  Disabling DEP via bcdedit"
+  - ps: bcdedit /set {current} nx AlwaysOff
+  
+  - ps: Write-Host "Creating marker folder"
+  - ps: New-Item -Path c:\myfolder123 -ItemType Directory
+  
+  - ps: Write-Host "  Rebooting ..." -Foreground Yellow
+  - ps: Start-Sleep -s 5
+  - ps: Restart-Computer -Force
+  - ps: Start-Sleep -s 5
+
+install:
+  - ps: Write-Host "After reboot"   
+  - ps: $cim = Get-CimInstance Win32_OperatingSystem
+  - ps: $depEnabled = $cim.DataExecutionPrevention_SupportPolicy -eq 3
+  - ps: Write-Host "DEP is enabled? $depEnabled"
+  
+  - ps: Write-Host "Testing that marker folder exist to ensure that it is the same VM"
+  - ps: Test-Path c:\myfolder123
+
 build: off
 
-after_test:
+#after_test:
 # powershell capture command output into variable
-- ps: $version = lxc version
-- ps: echo $version
+#- ps: $version = lxc version
+#- ps: echo $version
 # pack lxc as aftifact for upload
-- ps: $archive = "lxc-$version-windows-amd64.zip"
-- 7z a $archive c:\gopath\bin\lxc.exe
+#- ps: $archive = "lxc-$version-windows-amd64.zip"
+#- 7z a $archive c:\gopath\bin\lxc.exe
 
 
 #notifications:
