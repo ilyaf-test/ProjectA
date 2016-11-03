@@ -1,41 +1,9 @@
 version: 1.0.{build}
-
-init:
-  # Checking that DEP ss enabled
-  - ps: $cim = Get-CimInstance Win32_OperatingSystem
-  - ps: $depEnabled = $cim.DataExecutionPrevention_SupportPolicy -eq 3
-  - ps: Write-Host "DEP is enabled? $depEnabled"
-  - ps: Set-ExecutionPolicy Unrestricted -Force
-  - ps: Write-Host "  Disabling DEP via bcdedit"
-  
-  # Disabling DEP -- note that I use CMD, not PowerShell for {} tp be treated as correctly
-  - cmd: bcdedit /set {current} nx AlwaysOff
-  
-  # here we create marker folder to proof that VM will not be changed
-  - ps: $markerFolderExists = Test-Path c:\myfolder123
-  - ps: Write-Host "Narker folder exists? $markerFolderExists"
-  - ps: Write-Host "Creating marker folder"
-  - ps: New-Item -Path c:\myfolder123 -ItemType Directory
-  
-  - ps: Write-Host "  Rebooting ..." -Foreground Yellow
-  - ps: Start-Sleep -s 5
-  - ps: Restart-Computer -Force
-  - ps: Start-Sleep -s 5
-
-install:
-  - ps: Write-Host "Install stage after reboot"   
-  
-  # Checking that now DEP is disabled
-  - ps: $cim = Get-CimInstance Win32_OperatingSystem
-  - ps: $depEnabled = $cim.DataExecutionPrevention_SupportPolicy -eq 3
-  - ps: Write-Host "DEP is enabled? $depEnabled"
-  
-  # Ensurig that it is indeed the same VM
-  - ps: Write-Host "Testing that marker folder exist to ensure that it is the same VM"
-  - ps: $sameVm = Test-Path c:\myfolder123
-  - ps: Write-Host "Same VM? $sameVm"
-  
-build: off
+configuration: Release
+clone_depth: 2
+services: mssql2012sp1
+build_script:
+- ps: get-service 'MSSQL$SQL2012SP1'
 
 #after_test:
 # powershell capture command output into variable
