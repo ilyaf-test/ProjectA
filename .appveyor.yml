@@ -1,7 +1,9 @@
 version: 1.0.{build}
 configuration: Release
 clone_depth: 2
-services: mssql2012sp1
+services:
+- mssql2012sp1
+- iis
 build_script:
 - ps: get-service 'MSSQL$SQL2012SP1'
 
