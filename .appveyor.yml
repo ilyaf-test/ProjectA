@@ -1,10 +1,11 @@
 version: 1.0.{build}
-configuration: Release
-services:
-  - mssql2012sp1
-  - iis
-build_script:
-- ps: get-service 'MSSQL$SQL2012SP1'
+build: off
+#configuration: Release
+#services:
+#  - mssql2012sp1
+#  - iis
+#build_script:
+#- ps: get-service 'MSSQL$SQL2012SP1'
 
 #after_test:
 # powershell capture command output into variable
