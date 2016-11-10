@@ -1,5 +1,13 @@
 version: 1.0.{build}
 build: off
+
+configuration:
+  - Debug
+  - Release
+  
+install:
+  - ps: Write-host $env:Configuration
+  
 #configuration: Release
 #services:
 #  - mssql2012sp1
