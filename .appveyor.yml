@@ -1,10 +1,10 @@
 version: 1.0.{build}
 before_build:
-- ps: write-host "my 2 script"
+- ps: write-host "my . script"
 build:
   verbosity: minimal
 on_finish:
-- cmd: echo my 22 onfin call
+- cmd: echo my . onfin call
 
   
 #configuration: Release
