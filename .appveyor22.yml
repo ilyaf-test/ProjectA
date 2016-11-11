@@ -1,12 +1,11 @@
 version: 1.0.{build}
-build: off
+before_build:
+- ps: write-host "my 2 script"
+build:
+  verbosity: minimal
+on_finish:
+- cmd: echo my 22 onfin call
 
-configuration:
-  - Debug
-  - Release
-  
-install:
-  - ps: Write-host $env:Configuration
   
 #configuration: Release
 #services:
