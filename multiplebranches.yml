@@ -1,0 +1,13 @@
+version: 1.0.{build}
+build:
+  project: src\ProjectA.sln
+  verbosity: detailed
+test: off
+artifacts:
+- path: src\ProjectA
+  name: ProjectA
+deploy:
+- provider: Environment
+  name: WinApp
+  on:
+    branch: master
