@@ -1,0 +1,12 @@
+version: 1.0.{build}
+
+build_script:
+- ps: write-host "I am build_script, calling exit"
+- ps: exit
+
+test_script:
+- ps: write-host "I am test_script"
+
+on_finish:
+- ps: $?
+- ps: write-host "I am on_finish. It was exit after_build"
