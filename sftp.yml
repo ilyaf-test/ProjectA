@@ -1,0 +1,15 @@
+version: 1.0.{build}
+build:
+  project: src\ProjectA.sln
+  verbosity: minimal
+test: off
+artifacts:
+- path: src\ProjectA\bin\Debug\ProjectA.dll
+  name: ProjectA
+deploy:
+- provider: FTP
+  host: frs.sourceforge.net
+  protocol: sftp
+  username: finkelshteyn
+  password:
+    secure: aYObXnG96HqtmHtcse3ZSA==
