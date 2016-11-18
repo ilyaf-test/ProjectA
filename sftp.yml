@@ -14,4 +14,8 @@ deploy:
   protocol: sftp
   username: finkelshteyn
   password:
-    secure: aYObXnG96HqtmHtcse3ZSA==
+    #appveyour.com
+    #secure: aYObXnG96HqtmHtcse3ZSA== 
+    
+    #appveyour.local
+    secure: BSeEWPRwJnCaJzdHndwJDA==  
