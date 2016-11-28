@@ -2,9 +2,9 @@ version: 1.0.{build}
 build:
   project: src\ProjectA.sln
   verbosity: minimal
-test: off
-#test_script: 
-#- ps: sleep 20
+#test: off
+test_script: 
+- ps: sleep 20
 artifacts:
 - path: src\ProjectA\bin\Debug\ProjectA.dll
   name: ProjectA
