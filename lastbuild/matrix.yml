@@ -1,0 +1,15 @@
+version: 1.0.{build}
+
+matrix:
+ fast_finish: true
+platform:
+#  - x86
+  - Any CPU
+configuration:
+  - Debug
+  - Release
+
+build:
+  verbosity: minimal
+  
+test: off
