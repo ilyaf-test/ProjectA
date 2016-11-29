@@ -1,13 +1,22 @@
 version: 1.0.{build}
 
+#matrix:
+# fast_finish: true
+#platform:
+#  - x86
+#  - Any CPU
+#configuration:
+#  - Debug
+#  - Release
+
 matrix:
- fast_finish: true
-platform:
-  - x86
-  - Any CPU
-configuration:
-  - Debug
-  - Release
+  - image: WMF 5
+    PowerShellEdition: Desktop
+  - image: WMF 5
+    PowerShellEdition: Core
+  - image: WMF 4
+    PowerShellEdition: Desktop
+
 
 build:
   verbosity: minimal
