@@ -20,5 +20,7 @@ environment:
 
 build: off
   
-test_script:
-  -ps: $PSVersionTable
+test: off
+
+install:
+  - ps: Write-host "PS version $PSVersionTable"
