@@ -20,4 +20,5 @@ environment:
 
 build: off
   
-test: off
+test_script:
+  -ps: $PSVersionTable
