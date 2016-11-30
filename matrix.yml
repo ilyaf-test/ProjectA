@@ -10,11 +10,11 @@ version: 1.0.{build}
 #  - Release
 environment:
   matrix:
-  - image: WMF 5
+  - APPVEYOR_BUILD_WORKER_IMAGE: WMF 5
     PowerShellEdition: Desktop
-  - image: WMF 5
+  - APPVEYOR_BUILD_WORKER_IMAGE: WMF 5
     PowerShellEdition: Core
-  - image: WMF 4
+  - APPVEYOR_BUILD_WORKER_IMAGE: WMF 4
     PowerShellEdition: Desktop
 
 
