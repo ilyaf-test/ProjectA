@@ -1,0 +1,16 @@
+version: 1.0.{build}
+build:
+  verbosity: minimal
+artifacts:
+- path: src\ProjectA
+  name: ProjectA
+deploy:
+- provider: FTP
+  host: w
+  protocol: ftp
+  username: WebApplication2
+  password:
+    secure: L9JLQ50TpPCwGugJTyXIdQ==
+  on:
+    branch: master
+    APPVEYOR_PULL_REQUEST_NUMBER: ''
