@@ -14,7 +14,7 @@ environment:
     PowerShellEdition: Desktop
   - APPVEYOR_BUILD_WORKER_IMAGE: WMF 5
     PowerShellEdition: Core
-  - APPVEYOR_BUILD_WORKER_IMAGE: WMF 4
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
     PowerShellEdition: Desktop
 
 
