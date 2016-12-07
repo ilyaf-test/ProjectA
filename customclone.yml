@@ -3,7 +3,8 @@ version: 1.0.{build}
 clone_script:
 - ps: git clone -q $("--branch=" + $Env:APPVEYOR_REPO_BRANCH) $("https://github.com/" + $Env:APPVEYOR_REPO_NAME + ".git") $Env:APPVEYOR_BUILD_FOLDER
 - ps: cd $Env:APPVEYOR_BUILD_FOLDER
-- cmd: IF NOT %APPVEYOR_PULL_REQUEST_NUMBER%=="" git fetch origin +refs/pull/$Env:APPVEYOR_PULL_REQUEST_NUMBER/merge: && git checkout FETCH_HEAD
+- cmd IF NOT %APPVEYOR_PULL_REQUEST_NUMBER%=="" git fetch origin +refs/pull/%APPVEYOR_PULL_REQUEST_NUMBER%/merge:
+- cmd IF NOT %APPVEYOR_PULL_REQUEST_NUMBER%=="" git checkout FETCH_HEAD
 - cmd: IF %APPVEYOR_PULL_REQUEST_NUMBER%=="" git checkout -qf %APPVEYOR_REPO_COMMIT%
 - ps: git submodule update -q --init --recursive
     
