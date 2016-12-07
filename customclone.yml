@@ -13,7 +13,7 @@ clone_script:
 
  - IF [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] git checkout %APPVEYOR_REPO_COMMIT%
 
- - IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] echo it is pool request!
+ #- IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] echo it is pool request!
 
  - IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] git fetch origin +refs/pull/%APPVEYOR_PULL_REQUEST_NUMBER%/merge:
 
