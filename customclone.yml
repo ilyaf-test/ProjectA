@@ -6,7 +6,7 @@ clone_script:
 
     cd $Env:APPVEYOR_BUILD_FOLDER
 
-    if ($Env:APPVEYOR_PULL_REQUEST_NUMBER) { $("git fetch origin +refs/pull/" + $Env:APPVEYOR_PULL_REQUEST_NUMBER + "/merge:"); git checkout }
+    if ($Env:APPVEYOR_PULL_REQUEST_NUMBER) { $("git fetch origin +refs/pull/" + $Env:APPVEYOR_PULL_REQUEST_NUMBER + "/merge:"); git checkout FETCH_HEAD;}
     else { $("git checkout -qf " + $Env:APPVEYOR_REPO_COMMIT); }
 
     git submodule update -q --init --recursive
