@@ -7,6 +7,7 @@ clone_script:
 - echo %APPVEYOR_BUILD_FOLDER%
 - git clone -q --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
 #- cmd: cd %APPVEYOR_BUILD_FOLDER%
+- echo on
 - echo %APPVEYOR_PULL_REQUEST_NUMBER%
 - IF NOT %APPVEYOR_PULL_REQUEST_NUMBER%=="" git fetch origin +refs/pull/%APPVEYOR_PULL_REQUEST_NUMBER%/merge:
 - cmd IF NOT %APPVEYOR_PULL_REQUEST_NUMBER%=="" git checkout FETCH_HEAD
