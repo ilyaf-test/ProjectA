@@ -6,9 +6,9 @@ clone_script:
 - echo %APPVEYOR_REPO_NAME%
 - echo %APPVEYOR_BUILD_FOLDER%
 - git clone -q --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
-- cmd: cd %APPVEYOR_BUILD_FOLDER%
-- cmd echo %APPVEYOR_PULL_REQUEST_NUMBER%
-- cmd IF NOT %APPVEYOR_PULL_REQUEST_NUMBER%=="" git fetch origin +refs/pull/%APPVEYOR_PULL_REQUEST_NUMBER%/merge:
+#- cmd: cd %APPVEYOR_BUILD_FOLDER%
+- echo %APPVEYOR_PULL_REQUEST_NUMBER%
+- IF NOT %APPVEYOR_PULL_REQUEST_NUMBER%=="" git fetch origin +refs/pull/%APPVEYOR_PULL_REQUEST_NUMBER%/merge:
 - cmd IF NOT %APPVEYOR_PULL_REQUEST_NUMBER%=="" git checkout FETCH_HEAD
 - cmd: IF %APPVEYOR_PULL_REQUEST_NUMBER%=="" git checkout -qf %APPVEYOR_REPO_COMMIT%
 - ps: git submodule update -q --init --recursive
