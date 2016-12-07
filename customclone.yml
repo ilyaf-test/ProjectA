@@ -1,16 +1,7 @@
 version: 1.0.{build}
 
 clone_script:
-- dir
-- echo %APPVEYOR_REPO_BRANCH%
-- echo %APPVEYOR_REPO_NAME%
-- echo %APPVEYOR_BUILD_FOLDER%
 - git clone -q --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
-
-#- cmd: cd %APPVEYOR_BUILD_FOLDER%
-#- echo on
-#- echo %APPVEYOR_PULL_REQUEST_NUMBER%
-
 - IF [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] git checkout %APPVEYOR_REPO_COMMIT%
 - IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] echo it is pool request!
 - IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] git fetch origin +refs/pull/%APPVEYOR_PULL_REQUEST_NUMBER%/merge
