@@ -11,11 +11,11 @@ clone_script:
 #- echo on
 #- echo %APPVEYOR_PULL_REQUEST_NUMBER%
 
- - IF [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] git checkout %APPVEYOR_REPO_COMMIT%
- - IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] echo it is pool request!
- - IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] git fetch origin +refs/pull/%APPVEYOR_PULL_REQUEST_NUMBER%/merge
- - IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] git checkout FETCH_HEAD
- - git submodule update -q --init --recursive
+- IF [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] git checkout %APPVEYOR_REPO_COMMIT%
+- IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] echo it is pool request!
+- IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] git fetch origin +refs/pull/%APPVEYOR_PULL_REQUEST_NUMBER%/merge
+- IF NOT [%APPVEYOR_PULL_REQUEST_NUMBER%] == [] git checkout FETCH_HEAD
+- git submodule update -q --init --recursive
     
 environment:
   pullid: 0
