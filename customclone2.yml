@@ -6,11 +6,6 @@ clone_script:
 #cd $Env:APPVEYOR_BUILD_FOLDER
 
 - ps: if ($Env:APPVEYOR_PULL_REQUEST_NUMBER) {git fetch origin +refs/pull/$($Env:APPVEYOR_PULL_REQUEST_NUMBER)/merge}
-- ps: $SS = $Error[0]
-- ps: $SS.InvocationInfo
-- ps: $SS.Exception
-- ps: $SS.Exception.InnerException
-- ps: $SS.Exception.StackTrace
 
 - ps: if ($Env:APPVEYOR_PULL_REQUEST_NUMBER) {git checkout -qf FETCH_HEAD}
 
@@ -23,3 +18,10 @@ environment:
 build_script:
 - cmd: dir
 deploy: off
+
+on_finish:
+- ps: $SS = $Error[0]
+- ps: $SS.InvocationInfo
+- ps: $SS.Exception
+- ps: $SS.Exception.InnerException
+- ps: $SS.Exception.StackTrace
