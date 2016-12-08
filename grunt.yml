@@ -36,7 +36,7 @@ install:
   - cmd: yarn global add grunt-cli@0.1.13
   - ps: $env:YARN_GLOBAL_BIN = (yarn global bin) 
   - ps: Get-ChildItem env:YARN_GLOBAL_BIN
-  - cmd: SET PATH="%YARN_GLOBAL_BIN%";%PATH%;
+  - cmd: SET PATH=%YARN_GLOBAL_BIN%;%PATH%;
   - cmd: yarn install
   - cmd: where yarn 
 
@@ -44,7 +44,7 @@ build_script:
   # - cmd: yarn run lint 
   - ps: Get-ChildItem env:PATH
   - cmd: dir "%YARN_GLOBAL_BIN%"
-  - cmd: grunt.cmd
+  - cmd: %YARN_GLOBAL_BIN%\grunt
 
 after_build:
   - ps: Get-ChildItem dist\installer\ia32\* | % { Push-AppveyorArtifact $_.FullName -FileName "$env:appveyor_build_id/$($_.Name)" -DeploymentName redbooth-s3-deployment }
