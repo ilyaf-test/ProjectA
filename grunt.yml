@@ -44,7 +44,8 @@ build_script:
   # - cmd: yarn run lint 
   - ps: Get-ChildItem env:PATH
   - cmd: dir "%YARN_GLOBAL_BIN%"
-  - cmd: call "%YARN_GLOBAL_BIN%"\grunt
+  - ps: test-path "C:\Program Files (x86)\nodejs"\grunt
+  - cmd: call "C:\Program Files (x86)\nodejs"\grunt
 
 after_build:
   - ps: Get-ChildItem dist\installer\ia32\* | % { Push-AppveyorArtifact $_.FullName -FileName "$env:appveyor_build_id/$($_.Name)" -DeploymentName redbooth-s3-deployment }
