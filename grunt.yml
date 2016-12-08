@@ -27,7 +27,7 @@ install:
   - ps:  Write-host "***************************Before choco******************************" -ForegroundColor Yellow
   - ps: $env:Path -split ";"
   - cmd: choco install -i yarn 
-    - ps:  Write-host "*********************************************************" -ForegroundColor Yellow
+  - ps:  Write-host "*********************************************************" -ForegroundColor Yellow
   - ps:  Write-host "***************************After choco******************************" -ForegroundColor Yellow
   - ps: $env:Path -split ";"
   - cmd: refreshenv
