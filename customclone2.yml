@@ -7,7 +7,7 @@ clone_script:
 - dir
 - where git
 
-- ps: if ($Env:APPVEYOR_PULL_REQUEST_NUMBER) {&"git fetch origin +refs/pull/$Env:APPVEYOR_PULL_REQUEST_NUMBER/merge"}
+- ps: if ($Env:APPVEYOR_PULL_REQUEST_NUMBER) {git fetch origin +refs/pull/$($Env:APPVEYOR_PULL_REQUEST_NUMBER)/merge}
 #- ps: if ($Env:APPVEYOR_PULL_REQUEST_NUMBER) {git checkout -qf FETCH_HEAD}
 
 - ps: if (!$Env:APPVEYOR_PULL_REQUEST_NUMBER) {$("git checkout -qf " + $Env:APPVEYOR_REPO_COMMIT)}
