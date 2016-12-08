@@ -23,7 +23,13 @@ branches:
 install:
   - ps: $env:appveyor_commit_message = (git log --format=%B --no-merges -n 1)
   - ps: Install-Product node $env:nodejs_version x86
+  - ps:  Write-host "*********************************************************" -ForegroundColor Yellow
+  - ps:  Write-host "***************************Before choco******************************" -ForegroundColor Yellow
+  - ps: $env:Path -split ";"
   - cmd: choco install -i yarn 
+    - ps:  Write-host "*********************************************************" -ForegroundColor Yellow
+  - ps:  Write-host "***************************After choco******************************" -ForegroundColor Yellow
+  - ps: $env:Path -split ";"
   - cmd: refreshenv
   - cmd: node --version
   - cmd: yarn --version
@@ -35,7 +41,7 @@ install:
   - cmd: where yarn 
 
 build_script:
-  - cmd: yarn run lint 
+  # - cmd: yarn run lint 
   - ps: Get-ChildItem env:PATH
   - cmd: dir "%YARN_GLOBAL_BIN%"
   - cmd: grunt
