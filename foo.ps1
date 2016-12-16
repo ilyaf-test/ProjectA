@@ -1,2 +1,2 @@
-write-host $myVar
-$myVar = "two"
+write-host $env:MyVar
+$env:MyVar = "foo"
