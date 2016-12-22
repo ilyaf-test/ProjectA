@@ -1,4 +1,4 @@
-version: '{build}'
+version: {build}
 before_build:
 - ps: write-host "my dot script"
 build:
