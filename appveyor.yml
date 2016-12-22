@@ -1,6 +1,6 @@
 version: {build}
 before_build:
-- ps: write-host "my dot script"
+- ps: write-host "my dot a script"
 build:
   verbosity: minimal
 on_finish:
