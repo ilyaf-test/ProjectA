@@ -1,0 +1,5 @@
+version: 1.0.{build}
+build: off
+test: off
+deploy_script:
+- cmd: git subtree push --prefix dist origin gh-pages
