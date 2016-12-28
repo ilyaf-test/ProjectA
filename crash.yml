@@ -1,6 +1,7 @@
 version: 1.21.{build}
 build_script:
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+- ps: if (test-path $env:SystemRoot\Minidump\*.dmp) {appveyor PushArtifact -Path $env:SystemRoot\Minidump\*.dmp; throw "BSOD happened"}
 - ps: (New-Object Net.WebClient).DownloadFile("https://download.sysinternals.com/files/NotMyFault.zip", "$env:APPVEYOR_BUILD_FOLDER\NotMyFault.zip")
 - ps: 7z e NotMyFault.zip
 - ps: Write-host "before crash"
