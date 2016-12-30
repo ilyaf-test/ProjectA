@@ -7,12 +7,12 @@ install:
 - ps: $bytes = [System.Convert]::FromBase64String($env:certStr)
 
 #use it as PFX file
-- ps: [System.IO.File]::WriteAllBytes($env:APPVEYOR_BUILD_FOLDER\myCert.pfx, $bytes)
+- powershell [System.IO.File]::WriteAllBytes($env:APPVEYOR_BUILD_FOLDER\myCert.pfx, $bytes)
 
 # or use it as X509Certificate2 object and add to cert store
 - ps: $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 - ps: $cert.Import($bytes)
-- ps: New-Object System.Security.Cryptography.X509Certificates.X509Store("My", "CurrentUser");
+- ps: $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My", "CurrentUser");
 - ps: $store.Open("ReadWrite");
 - ps: $store.Add($cert)
 - ps: $store.Close()
