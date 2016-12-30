@@ -8,7 +8,7 @@ install:
 - ps: $bytes = [System.Convert]::FromBase64String($env:certStr)
 - ps: $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 - ps: $cert.Import($bytes)
-- ps: Export-PfxCertificate -Cert $cert -FilePath $env:APPVEYOR_BUILD_FOLDER\myCert.pfx -Password $env:certPwd
+- ps: Export-PfxCertificate -Cert $cert -FilePath $env:APPVEYOR_BUILD_FOLDER\myCert.pfx -Password (ConvertTo-SecureString $env:certPwd -AsPlainText -Force)
 
 build_script:
 - dir *pfx
