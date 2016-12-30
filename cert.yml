@@ -12,11 +12,12 @@ install:
         
     [System.IO.File]::WriteAllBytes("$env:APPVEYOR_BUILD_FOLDER\myCert.pfx", $bytes)
 
+#or use as X509 cert and install to store
 - ps: >-
     
     $bytes = [System.Convert]::FromBase64String($env:certStr)
 
-    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 #use as X509 cert and install to store
+    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 
     $cert.Import($bytes)
 
