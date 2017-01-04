@@ -1,0 +1,14 @@
+version: 1.0.{build}
+environment:
+  access_token:
+    secure: N/ZxtHVMz9uWqVL9Sjs/65OfIzAoQdw2+WTq2EnaZVyPsPMuEO0GypqCtgN7BuFo
+  github_email:
+    secure: LRTp6Ub3hLqQcOZ61S59Mgw9D+Rc/bjZQW587M0u18E=
+build: off
+test: off
+deploy_script:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email %github_email%
+  - git config --global user.name "IlyaFinkelshteyn"
+  - git subtree push --prefix dist origin gh-pages

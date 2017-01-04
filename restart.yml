@@ -1,0 +1,11 @@
+version: 1.121.{build}
+
+build_script:
+  - ps: Write-Output "Restarting worker in 5 seconds...";
+  - ps: Start-Sleep -Seconds 5
+  - ps: Restart-Computer -Force -Confirm:$false;
+  - ps: Start-Sleep -Seconds 5
+  - REM Starting in 4
+  - REM Starting in 3
+  - REM Starting in 2
+  - REM Starting in 1
