@@ -19,4 +19,5 @@ deploy:
 after_deploy:
   - aws configure set aws_access_key_id %aws_access_key_id%
   - aws configure set aws_secret_access_key %aws_secret_access_key%
+  # more sophisticated option would be --access-control-policy file://$env:APPVEYOR_BUILD_FOLDER/acl.json (instead of --grant-full-control)
   - aws s3api put-object-acl --bucket %aws_bucket% --key src/ProjectA.zip --grant-full-control emailaddress=user1@example.com,emailaddress=user2@example.com
