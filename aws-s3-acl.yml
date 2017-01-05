@@ -1,0 +1,22 @@
+version: 1.21.{build}
+environment:
+  aws_access_key_id:
+    secure: NAStsMnmn1goCp76E9l+JqU8ZUKVW0VkDnwbF3LNfiA=
+  aws_secret_access_key:
+    secure: DKwIp5Q2iylQTPk6+mCL+0r118CQO1N4esURhP8QreegAj/2DpvLNf8MqUgWaDjP
+  aws_bucket:
+    secure: acFxtSnVgA1uUypb7C1vMA==
+build: off
+test: off
+artifacts:
+- path: src\ProjectA
+  name: ProjectA
+deploy:
+- provider: S3
+  access_key_id: $(aws_access_key_id)
+  secret_access_key: $(aws_secret_access_key)    
+  bucket: $(aws_bucket)
+after_deploy:
+  - aws configure set aws_access_key_id %aws_access_key_id%
+  - aws configure set aws_secret_access_key %aws_secret_access_key%
+  - aws s3api put-object-acl --bucket %aws_bucket% --key src/ProjectA.zip --grant-full-control emailaddress=user1@example.com,emailaddress=user2@example.com
