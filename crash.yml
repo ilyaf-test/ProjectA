@@ -1,7 +1,8 @@
 version: 1.21.{build}
 
 clone_script:
-- cmd: echo do not clone
+- ps: write-host "att d"
+- ps: sleep 20
 
 build_script:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
