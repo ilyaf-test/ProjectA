@@ -22,5 +22,9 @@ build: off
   
 test: off
 
+artifacts:
+- path: src\ProjectA
+  name: ProjectA
+
 install:
 - ps: $PSVersionTable | ForEach-Object {$_}
