@@ -1,13 +1,14 @@
-# create and encrypt .boto file on local machine (you can use https://www.appveyor.com/docs/how-to/rdp-to-build-worker/ instead):
+# Preparation steps:
+# On local machine (or you can use https://www.appveyor.com/docs/how-to/rdp-to-build-worker/ instead):
 # Install https://pub.storage.googleapis.com/gsutil.zip
-# run gsutil config
+# Run gsutil config and complete authentication and configuration
 # Check that "$env:USERPROFILE\.boto" created
-# Optionaly cleanup "$env:USERPROFILE\.boto" from comments
-# encode .boto file as a Base64 String and then encrypt:
+# Optionaly cleanup "$env:USERPROFILE\.boto" (remove comments) and add some additional configuration is needed
+# Encode .boto file as a Base64 string with PowerShell:
 #   $bytes = [System.IO.File]::ReadAllBytes("$env:USERPROFILE\.boto")
 #   [System.Convert]::ToBase64String($bytes)
-# encrypt with https://ci.appveyor.com/tools/encrypt
-# put encrypted file as a secure variable
+# Encrypt result with https://ci.appveyor.com/tools/encrypt
+# Enter encrypted value as a secure variable into you YAML config. If you use UI, copy paste unencrypted Base64 string as environemnt variable value and then press `secure`
 
 version: 1.21.{build}
 
