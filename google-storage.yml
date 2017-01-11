@@ -1,0 +1,14 @@
+version: 1.21.{build}
+
+environment:
+  boto:
+    secure: KI05GwhF+NEe03WOKVywgceaRZKujz9x/TC/7A4+Lspqjo6PWVsjnoxGkqxJk8mTlhhU8ScBCxBicUiJLwzKNs++wFPqbfA5SEL3C5zuL59IgQGR6YmHLVGYoDLXr9iXgalMgQ2ENNCaOrtodeB21fwi4Ee+bTo7X9TQlgdaE60Ykm4UTCa9nm8A4Kui0Uj4G5hY1of3+MtBRCM/CzR9EytAg8QooEn52AI4KhdQqZ+guT/DxMAjsHqkP22+im2cuNjbERpGr4GYAAhXfZlCW5alp6yGjB47vZEtrIhFjizh6ldnQCjU+0B6R8Vl0Qad
+
+install:
+- ps: $zipPath = "gsutil.zip"
+- ps: (New-Object Net.WebClient).DownloadFile('https://pub.storage.googleapis.com/gsutil.zip', $zipPath)
+- 7z x $zipPath -y | Out-Null
+- ps: [System.IO.File]::WriteAllLines("C:\Users\appveyor\.boto", $env:boto)
+
+build_script:
+- gsutil\gsutil ls
