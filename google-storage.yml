@@ -28,6 +28,13 @@ install:
         
     [System.IO.File]::WriteAllBytes("$env:USERPROFILE\.boto", $bytes)   
 
-build_script:
-# test that I can see bucket
-- gsutil\gsutil ls
+build:
+  project: src\ProjectA.sln
+  verbosity: minimal
+
+artifacts:
+- path: ProjectA\bin\Debug\ProjectA.dll
+  name: ProjectA
+
+deploy_script:
+- ps: $artifacts.values | Where-Object { $_.path -like '*WebApplication1.zip' } | ForEach-Object {.\gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}
