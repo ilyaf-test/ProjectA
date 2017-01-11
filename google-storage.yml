@@ -37,5 +37,5 @@ artifacts:
   name: ProjectA
 
 deploy_script:
-- ps: env:$uploadCommand = [System.Convert]::ToBase64String("$artifacts.values | ForEach-Object {gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}")
+- ps: $env:uploadCommand = [System.Convert]::ToBase64String("$artifacts.values | ForEach-Object {gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}")
 - powershell.exe -EncodedCommand %uploadCommand%
