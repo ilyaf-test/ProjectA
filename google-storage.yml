@@ -40,7 +40,7 @@ deploy_script:
 
 - ps: $b  = [System.Text.Encoding]::UTF8.GetBytes("$artifacts.values | ForEach-Object {gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}")
 - ps: $env:uploadCommand = [System.Convert]::ToBase64String($b)
-- powershell.exe -EncodedCommand %uploadCommand%
+- powershell.exe -EncodedCommand %uploadCommand% -NoProfile
 
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
