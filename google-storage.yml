@@ -1,4 +1,5 @@
-# before on local machine:
+# create and encrypt .boto file on local machine (you can use https://www.appveyor.com/docs/how-to/rdp-to-build-worker/ instead):
+# Install https://pub.storage.googleapis.com/gsutil.zip
 # run gsutil config
 # Check that "$env:USERPROFILE\.boto" created
 # Optionaly cleanup "$env:USERPROFILE\.boto" from comments
