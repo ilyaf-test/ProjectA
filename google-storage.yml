@@ -37,4 +37,4 @@ artifacts:
   name: ProjectA
 
 deploy_script:
-- ps: $artifacts.values | Where-Object { $_.path -like '*WebApplication1.zip' } | ForEach-Object {.\gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}
+- ps: $artifacts.values | Where-Object { $_.path -like '*.zip' } | ForEach-Object {.\gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}
