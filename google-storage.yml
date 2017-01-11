@@ -39,7 +39,7 @@ artifacts:
 deploy_script:
 
 - echo "foreach ($artifactName in $artifacts.keys) {.\gsutil\gsutil cp $artifacts[$artifactName].path gs://ilyaf-test-bucket}" > callme.ps1
-- powershell.exe -Command .\callme.ps1
+- ps: powershell.exe -Command .\callme.ps1
 
 #- ps: foreach ($artifactName in $artifacts.keys) {.\gsutil\gsutil cp $artifacts[$artifactName].path gs://ilyaf-test-bucket}
 
