@@ -8,7 +8,7 @@ install:
 - ps: $zipPath = "gsutil.zip"
 - ps: (New-Object Net.WebClient).DownloadFile('https://pub.storage.googleapis.com/gsutil.zip', $zipPath)
 - 7z x $zipPath -y | Out-Null
-- ps: [System.IO.File]::WriteAllLines("C:\Users\appveyor\.boto", $env:boto)
+- ps: Add-Content -Value $env:boto -Path $env:USERPROFILE\.boto
 
 build_script:
 - gsutil\gsutil ls
