@@ -2,9 +2,11 @@
 # run gsutil config
 # Check that "$env:USERPROFILE\.boto" created
 # Optionaly cleanup "$env:USERPROFILE\.boto" from comments
-# $bytes = [System.IO.File]::ReadAllBytes("$env:USERPROFILE\.boto")
-# [System.Convert]::ToBase64String($bytes)
-# then encrypt with https://ci.appveyor.com/tools/encrypt
+# encode .boto file as a Base64 String and then encrypt:
+#   $bytes = [System.IO.File]::ReadAllBytes("$env:USERPROFILE\.boto")
+#   [System.Convert]::ToBase64String($bytes)
+# encrypt with https://ci.appveyor.com/tools/encrypt
+# put encrypted file as a secure variable
 
 version: 1.21.{build}
 
