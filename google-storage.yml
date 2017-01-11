@@ -41,5 +41,5 @@ deploy_script:
 - echo "$artifacts.values | ForEach-Object {gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}" > callme.ps1
 - powershell.exe -Command .\callme.ps1
 
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#on_finish:
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
