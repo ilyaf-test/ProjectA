@@ -37,5 +37,4 @@ artifacts:
   name: ProjectA
 
 deploy_script:
-- ps: $artifacts.values | ForEach-Object {cmd /c gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}
-- echo %artifacts%
+- powershell.exe $artifacts.values | ForEach-Object {gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}
