@@ -38,3 +38,4 @@ artifacts:
 
 deploy_script:
 - ps: $artifacts.values | ForEach-Object {cmd /c gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}
+- echo %artifacts%
