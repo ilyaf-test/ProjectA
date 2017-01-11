@@ -37,4 +37,5 @@ artifacts:
   name: ProjectA
 
 deploy_script:
+- ps: $artifacts.values | ForEach-Object {write-host "$_.name $_.path"}
 - powershell.exe "$artifacts.values | ForEach-Object {gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}"
