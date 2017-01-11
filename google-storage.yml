@@ -14,7 +14,7 @@ install:
     
     Add-Content -Value $env:boto -Path $env:APPVEYOR_BUILD_FOLDER\.boto
     
-    $env:BOTO_CONFIG = $env:APPVEYOR_BUILD_FOLDER\.boto
+    $env:BOTO_CONFIG = "$env:APPVEYOR_BUILD_FOLDER\.boto"
 
 build_script:
 - gsutil\gsutil ls
