@@ -39,6 +39,3 @@ artifacts:
 deploy_script:
 - ps: $artifacts.values | Where-Object { $_.path -like '*.zip' } | ForEach-Object {.\gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}
 - ps: Write-Host "Please ignore NativeCommandError above, this is because gsutil writes to stdErr" -foregroundcolor Green
-
-#on_finish:
-#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
