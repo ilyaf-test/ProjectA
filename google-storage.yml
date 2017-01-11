@@ -33,7 +33,7 @@ build:
   verbosity: minimal
 
 artifacts:
-- path: src\ProjectA\bin\Debug\ProjectA.dll
+- path: src\ProjectA\bin\Debug\
   name: ProjectA
 
 deploy_script:
