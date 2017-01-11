@@ -38,4 +38,4 @@ artifacts:
 
 deploy_script:
 - ps: $artifacts.values | Where-Object { $_.path -like '*.zip' } | ForEach-Object {.\gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}
-#- ps: Write-Host "Please ignore NativeCommandError above, this is because gsutil writes to stdErr" -foregroundcolor Green
+- ps: Write-Host "Please ignore NativeCommandError above, this is because gsutil writes output to stdErr" -foregroundcolor Green
