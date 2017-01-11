@@ -39,3 +39,6 @@ artifacts:
 deploy_script:
 - ps: $env:uploadCommand = [System.Convert]::ToBase64String(`$artifacts.values | ForEach-Object {gsutil\gsutil cp $_.path gs://ilyaf-test-bucket}`)
 - powershell.exe -EncodedCommand %uploadCommand%
+
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
