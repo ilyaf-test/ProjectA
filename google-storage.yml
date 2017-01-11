@@ -6,7 +6,6 @@
 # [System.Convert]::ToBase64String($bytes)
 # then encrypt with https://ci.appveyor.com/tools/encrypt
 
-
 version: 1.21.{build}
 
 environment:
@@ -23,11 +22,10 @@ install:
     
     $bytes = [System.Convert]::FromBase64String($env:boto)
         
-    [System.IO.File]::WriteAllBytes("$env:USERPROFILE\.boto", $bytes)       
-    
-#    $env:BOTO_CONFIG = " $env:USERPROFILE\.boto"
+    [System.IO.File]::WriteAllBytes("$env:USERPROFILE\.boto", $bytes)   
 
 build_script:
+# test that I can see bucket
 - gsutil\gsutil ls
 
 on_finish:
