@@ -6,9 +6,9 @@ environment:
 
 install:
 - ps: >-
-    $zipPath = "gsutil.zip"
+    $zipPath = "$env:APPVEYOR_BUILD_FOLDER\gsutil.zip"
 
-    (New-Object Net.WebClient).DownloadFile('https://pub.storage.googleapis.com/gsutil.zip', $zipPath)
+    (New-Object System.Net.WebClient).DownloadFile('https://pub.storage.googleapis.com/gsutil.zip', $zipPath)
 
     7z x $zipPath -y | Out-Null
     
