@@ -28,6 +28,7 @@ version: 1.0.{build}
 #install:
 #- ps: $PSVersionTable | ForEach-Object {$_}
 
+environment:
   matrix:
     # Visual Studio 2015
     - image: Visual Studio 2015
