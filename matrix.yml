@@ -31,11 +31,11 @@ version: 1.0.{build}
 environment:
   matrix:
     # Visual Studio 2015
-    - image: Visual Studio 2015
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
       SRC_FOLDER: src/VS2017
     
     # Visual Studio 2017
-    - image: Visual Studio 2013
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
       SRC_FOLDER: src/VS2017
 
 before_build:
