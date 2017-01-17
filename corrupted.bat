@@ -1,1 +1,1 @@
-corrupted.exe
+IF 1==1 (corrupted.exe)
