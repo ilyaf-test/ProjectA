@@ -1,1 +1,1 @@
-IF 1==1 (corrupted.exe)
+IF 1==1 (echo run corrupted && corrupted.exe)
