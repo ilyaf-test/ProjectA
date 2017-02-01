@@ -1,0 +1,6 @@
+version: 1.0.{build}
+clone_script:
+- cmd: echo "do not clone"
+skip_commits:
+  message: /\[chore\]/
+build: off
