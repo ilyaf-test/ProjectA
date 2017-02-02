@@ -6,6 +6,8 @@ clone_script:
 #skip_commits:
 #  author: IlyaFinkelshteyn
 skip_commits:
-  files:    
-    - '**/*.yml
+  files:
+    - docs/*
+    - '**/*.html'
+    - '**/*.yml'
 build: off
