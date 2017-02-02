@@ -17,8 +17,12 @@ clone_script:
 #only_commits:
 #  message: /cho.+/
 
-only_commits:
-  author: IlyaFinkelshteyn2
+#only_commits:
+#  author: IlyaFinkelshteyn2
 
+only_commits:
+  files:
+    - docs/*
+    - '**/*.html'
 
 build: off
