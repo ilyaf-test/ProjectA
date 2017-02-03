@@ -20,9 +20,9 @@ clone_script:
 #only_commits:
 #  author: IlyaFinkelshteyn2
 
-only_commits:
-  files:
-    - docs/*
-    - '**/*.html'
+#only_commits:
+#  files:
+#    - docs/*
+#    - '**/*.html'
 
 build: off
