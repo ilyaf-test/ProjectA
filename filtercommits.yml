@@ -25,4 +25,6 @@ clone_script:
 #    - docs/*
 #    - '**/*.html'
 
+skip_branch_with_pr: true
+
 build: off
