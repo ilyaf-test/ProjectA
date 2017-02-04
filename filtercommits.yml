@@ -2,9 +2,7 @@
   version: 1.0.{build}
   clone_script:
     - cmd: echo "do not clone2"
-  
-  skip_branch_with_pr: true
-  
+    
   branches:
     only:
       - abc
@@ -17,15 +15,12 @@
   clone_script:
     - cmd: echo "do not clone2"
   
-  skip_branch_with_pr: true
-  
   branches:
     only:
       - foo
       - bar  
   build: off
   deploy: off
-
 
 
 #skip_commits:
@@ -50,7 +45,3 @@
 #  files:
 #    - docs/*
 #    - '**/*.html'
-
-
-
-
