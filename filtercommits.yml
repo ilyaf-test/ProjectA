@@ -16,9 +16,10 @@
     - cmd: echo "do not clone2"
   
   branches:
-    only:
-      - foo
-      - bar  
+    except:
+    - master
+    - dfd
+
   build: off
   deploy: off
 
