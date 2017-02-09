@@ -39,10 +39,10 @@
 #only_commits:
 #  message: /csasasho.+/
 
-only_commits:
-  author: IlyaFinkelshteyn2
-
 #only_commits:
-#  files:
-#    - docs/*
-#    - '**/*.html'
+#  author: IlyaFinkelshteyn2
+
+only_commits:
+  files:
+    - docs/*
+    - '**/*.html'
