@@ -36,11 +36,11 @@
 #    - '**/*.html'
 #    - '**/*.yml'
 
-only_commits:
-  message: /csasasho.+/
-
 #only_commits:
-#  author: IlyaFinkelshteyn2
+#  message: /csasasho.+/
+
+only_commits:
+  author: IlyaFinkelshteyn2
 
 #only_commits:
 #  files:
