@@ -24,11 +24,11 @@
 #  deploy: off
 
 
-skip_commits:
-  message: /upd.+/
-
 #skip_commits:
-#  author: IlyaFinkelshteyn
+#  message: /upd.+/
+
+skip_commits:
+  author: IlyaFinkelshteyn
 
 #skip_commits:
 #  files:
