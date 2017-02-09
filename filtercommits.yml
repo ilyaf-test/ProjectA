@@ -30,14 +30,14 @@
 #skip_commits:
 #  author: IlyaFinkelshteyn
 
-skip_commits:
-  files:
-    - docs/*
-    - '**/*.html'
-    - '**/*.yml'
+#skip_commits:
+#  files:
+#    - docs/*
+#    - '**/*.html'
+#    - '**/*.yml'
 
-#only_commits:
-#  message: /cho.+/
+only_commits:
+  message: /csasasho.+/
 
 #only_commits:
 #  author: IlyaFinkelshteyn2
