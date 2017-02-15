@@ -4,10 +4,10 @@ environment:
     secure: yegkNwyxIwJrM3mYX4x2dw==
 
 install:
-  - ps: Disable-AzureDataCollection | Out-Null
+  - ps: New-Item -path "$env:APPDATA\Windows Azure Powershell" -type directory | Out-Null
+  - ps: Set-Content -path "$env:APPDATA\Windows Azure Powershell\AzureDataCollectionProfile.json" -value '{"enableAzureDataCollection":false}'
   - nuget install secure-file -ExcludeVersion
-  - secure-file\tools\secure-file -decrypt AzureRmProfile.json.enc -secret %my_secret%
-  - dir Azure*
+  - secure-file\tools\secure-file -decrypt AzureRmProfile.json.enc -secret %my_secret%  
 
 build_script:  
   - ps: Select-AzureRmProfile -Path  $env:APPVEYOR_BUILD_FOLDER\AzureRmProfile.json
