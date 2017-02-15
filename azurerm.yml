@@ -4,14 +4,11 @@ environment:
     secure: yegkNwyxIwJrM3mYX4x2dw==
 
 install:
-  - ps: Disable-AzureDataCollection
+  - ps: Disable-AzureDataCollection | Out-Null
   - nuget install secure-file -ExcludeVersion
   - secure-file\tools\secure-file -decrypt AzureRmProfile.json.enc -secret %my_secret%
   - dir Azure*
 
 build_script:  
-  - ps: Select-AzureRmProfile -Path  .\AzureRmProfile.json
+  - ps: Select-AzureRmProfile -Path  $env:APPVEYOR_BUILD_FOLDER\AzureRmProfile.json
   - ps: Select-AzureRmSubscription -SubscriptionName "Pay-As-You-Go"
-
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
