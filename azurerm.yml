@@ -1,0 +1,13 @@
+version: 1.22.{build}
+environment:
+  my_secret:
+    secure: yegkNwyxIwJrM3mYX4x2dw==
+
+install:
+  - nuget install secure-file -ExcludeVersion
+  - secure-file\tools\secure-file -decrypt AzureRmProfile.json.enc -secret %my_secret%
+  - dir Azure*
+
+build_script:
+  - ps: Select-AzureRmProfile -Path  .\AzureRmProfile.json
+  - ps: Select-AzureRmSubscription -SubscriptionName "Pay-As-You-Go"
