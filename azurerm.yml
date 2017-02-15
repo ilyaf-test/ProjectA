@@ -4,7 +4,7 @@ environment:
     secure: yegkNwyxIwJrM3mYX4x2dw==
 
 install:
-  - ps: "N" | Disable-AzureDataCollection
+  - ps: Disable-AzureDataCollection | Out-Null
   - nuget install secure-file -ExcludeVersion
   - secure-file\tools\secure-file -decrypt AzureRmProfile.json.enc -secret %my_secret%
   - dir Azure*
