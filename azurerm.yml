@@ -9,5 +9,6 @@ install:
   - dir Azure*
 
 build_script:
+  - ps: Disable-AzureDataCollection
   - ps: Select-AzureRmProfile -Path  .\AzureRmProfile.json
   - ps: Select-AzureRmSubscription -SubscriptionName "Pay-As-You-Go"
