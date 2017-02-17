@@ -1,0 +1,4 @@
+version: 1.22.{build}
+clone_folder: C:\PROJECTS\REPO WITH SPACES
+build:
+  verbosity: minimal
