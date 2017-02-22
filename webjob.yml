@@ -1,0 +1,12 @@
+version: 1.22.{build}
+build: off
+artifacts:
+- path: src\VeryNewWebJob
+  name: VeryNewWebJob
+deploy:
+- provider: AzureWebJob
+  website: ilyaf3
+  username: $ilyaf3
+  password:
+    secure: wo3gqImLjckquy1VnmwSL/S6H1Q1m7t6iKUGcvhKrzDDTIsBB2Qd2rz6Nmz6d9i9nTT5B1ci017GElrkKdf0ow==
+  artifact: VeryNewWebJob
