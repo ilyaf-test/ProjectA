@@ -6,17 +6,4 @@ environment:
     secure: dNPsSiN7aAwAe2K7Aw+IVw==
   AzureWebsiteName: ilyaf3
 build_script:
-- ps: |
-    $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f env:AzureDeploymentUsername,$env:AzureDeploymentPassword)))
-    
-    $apiUrl = "https://$env:AzureWebsiteName.scm.azurewebsites.net/api/command"
-    
-    $body = @{    
-      command="npm install"
-      dir="site"
-    }
-    $headers = @{
-      "Authorization" = ("Basic {0}" -f $base64AuthInfo)
-      "ContentType" = "application/json"  
-    }
-    Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -ContentType "application/json" -Body (ConvertTo-Json $body) | fl
+- ps: "$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes((\"{0}:{1}\" -f $env:AzureDeploymentUsername,$env:AzureDeploymentPassword)))\n$apiUrl = \"https://$env:AzureWebsiteName.scm.azurewebsites.net/api/command\"\n\n$body = @{    \n  command=\"npm install\"\n  dir=\"site\"\n}\n\n$headers = @{\n  \"Authorization\" = (\"Basic {0}\" -f $base64AuthInfo)\n  \"ContentType\" = \"application/json\"  \n}\n\nInvoke-RestMethod -Uri $apiUrl -Headers @{Authorization=(\"Basic {0}\" -f $base64AuthInfo)} -Method POST -ContentType \"application/json\" -Body (ConvertTo-Json $body) | fl"
