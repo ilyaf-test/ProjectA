@@ -9,15 +9,12 @@ build_script:
 - ps: |
     $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f env:AzureDeploymentUsername,$env:AzureDeploymentPassword)))
     $apiUrl = "https://$env:AzureWebsiteName.scm.azurewebsites.net/api/command"
-
     $body = @{    
       command="npm install"
       dir="site"
     }
-
     $headers = @{
       "Authorization" = ("Basic {0}" -f $base64AuthInfo)
       "ContentType" = "application/json"  
     }
-
     Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -ContentType "application/json" -Body (ConvertTo-Json $body) | fl
