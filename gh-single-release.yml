@@ -38,5 +38,5 @@ deploy:
   release: $(gh_tag)
   description: $(gh_tag)
   auth_token:
-    secure: wMMohB1peFVweiCjOG5M6g==
+    secure: $(gh_token)
   artifact: ProjectA
