@@ -1,0 +1,37 @@
+version: 1.22.{build}
+
+skip_tags: true
+
+environment:
+  gh_token:
+    secure: KOIV9ZKF/jPfIqHuSLRjoEbg51SMOxmA1pGR9Bzw90Tn3rCGQwWkw+weyKa+fgFW
+  gh_tag: single-latest
+
+build:
+  verbosity: minimal
+
+artifacts:
+- path: src\ProjectA
+  name: ProjectA
+
+before_deploy:
+- ps: |
+    $headers = @{
+      "Authorization" = "Bearer $env:gh_token"
+      "Content-type" = "application/json"
+    }
+    $release = Invoke-RestMethod -Uri "https://api.github.com/repos/$env:APPVEYOR_REPO_NAME/releases/tags/$env:gh_tag" -Headers $headers  -Method GET
+    if ($release -ne $null) {
+    $id = $release.id
+    Invoke-RestMethod -Uri "https://api.github.com/repos/$env:APPVEYOR_REPO_NAME/releases/$id" -Headers $headers  -Method DELETE
+    Invoke-RestMethod -Uri "https://api.github.com/repos/$env:APPVEYOR_REPO_NAME/git/refs/tags/$env:gh_tag" -Headers $headers  -Method DELETE
+    }
+
+deploy:
+- provider: GitHub
+  tag: $(gh_tag)
+  release: $(gh_tag)
+  description: $(gh_tag)
+  auth_token:
+    secure: wMMohB1peFVweiCjOG5M6g==
+  artifact: ProjectA
