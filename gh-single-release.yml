@@ -20,7 +20,7 @@ before_deploy:
       "Authorization" = "Bearer $env:gh_token"
       "Content-type" = "application/json"
     }
-    $release = Invoke-RestMethod -Uri "https://api.github.com/repos/$env:APPVEYOR_REPO_NAME/releases/tags/$env:gh_tag" -Headers $headers  -Method GET
+    $release = Invoke-RestMethod -Uri "https://api.github.com/repos/$env:APPVEYOR_REPO_NAME/releases/tags/$env:gh_tag" -Headers $headers  -Method GET -ErrorAction SilentlyContinue
     if ($release -ne $null) {
     $id = $release.id
     Invoke-RestMethod -Uri "https://api.github.com/repos/$env:APPVEYOR_REPO_NAME/releases/$id" -Headers $headers  -Method DELETE
