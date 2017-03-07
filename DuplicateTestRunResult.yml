@@ -5,6 +5,6 @@ test_script:
 - ps: $xml.ReplaceChild($xml.'test-run'.'test-run', $xml.'test-run')
 - ps: $xml.Save("$env:APPVEYOR_BUILD_FOLDER\DuplicateTestRunResult2.xml")
 - dir *xml
-- ps: get-content .\DuplicateTestRunResult2.xml
+- ps: Push-AppveyorArtifact .\DuplicateTestRunResult2.xml
 - ps: $wc = New-Object 'System.Net.WebClient'
 - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/nunit3/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\DuplicateTestRunResult2.xml))
