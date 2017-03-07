@@ -1,4 +1,8 @@
 version: 1.22.{build}
+build: off
 test_script:
+- ps: $xml = [xml](Get-Content ".\DuplicateTestRunResult.xml")
+- ps: $xml.ReplaceChild($xml.'test-run'.'test-run', $xml.'test-run')
+- ps: $xml.Save(".\DuplicateTestRunResult.xml")
 - ps: $wc = New-Object 'System.Net.WebClient'
 - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/nunit3/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\DuplicateTestRunResult.xml))
