@@ -7,4 +7,5 @@ test_script:
 - dir *xml
 - ps: Push-AppveyorArtifact .\DuplicateTestRunResult2.xml
 - ps: $wc = New-Object 'System.Net.WebClient'
-- ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/nunit3/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\DuplicateTestRunResult2.xml))
+#- ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/nunit3/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\DuplicateTestRunResult2.xml))
+- ps: $wc.UploadFile("http://appveyor.local/api/testresults/nunit3/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\DuplicateTestRunResult2.xml))
