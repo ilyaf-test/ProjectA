@@ -1,0 +1,15 @@
+version: 1.22.{build}
+image:
+- Visual Studio 2015
+- Visual Studio 2017 RC
+init:
+- ps: IF ((test-path 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community') -and ($env:GYP_MSVS_VERSION -eq "2013")) {throw}
+environment:
+  matrix:
+  - GYP_MSVS_VERSION: 2013
+  - GYP_MSVS_VERSION: 2017
+matrix:
+  allow_failures:
+    - image: Visual Studio 2017 RC
+      GYP_MSVS_VERSION: 2013
+build: off
