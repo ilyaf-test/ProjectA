@@ -4,3 +4,7 @@ build_script:
 - ps: get-content .\hi-utf-8.txt
 - cmd: chcp 65001 && dir test-*
 - cmd: chcp 866 && dir test-*
+
+- ps: dir test-*
+- ps: chcp 65001 && dir test-*
+- ps: chcp 866 && dir test-*
