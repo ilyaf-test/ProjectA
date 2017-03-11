@@ -2,9 +2,5 @@ version: 1.22.{build}
 build_script:
 - cmd: type hi-utf-8.txt
 - ps: get-content .\hi-utf-8.txt
-- cmd: chcp 65001 && dir test-*
-- cmd: chcp 866 && dir test-*
-
+- cmd: powershell dir test-*
 - ps: dir test-*
-- ps: chcp 65001 && dir test-*
-- ps: chcp 866 && dir test-*
