@@ -2,5 +2,4 @@ version: 1.22.{build}
 build_script:
 - cmd: type hi-utf-8.txt
 - ps: get-content .\hi-utf-8.txt
-- cmd: powershell dir test-*
 - ps: dir test-*
