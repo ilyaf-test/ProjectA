@@ -1,4 +1,4 @@
 version: 1.22.{build}
 build_script:
-- cmd: type hi-utf-8.txt && echo \n
+- cmd: type hi-utf-8.txt && echo next PowerShell:
 - ps: get-content .\hi-utf-8.txt
