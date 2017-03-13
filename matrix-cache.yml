@@ -4,6 +4,10 @@ platform:
 - x86
 - x64
 
+build_script:
+- echo platform: %platform%
+- mkdir  %CACHE_FOLDER% & copy src %CACHE_FOLDER%
+
 init:
 - if "%PLATFORM%"=="x86" SET CACHE_FOLDER = C:\FOO
 - if "%PLATFORM%"=="x64" SET CACHE_FOLDER = C:\BAR
