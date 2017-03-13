@@ -13,6 +13,3 @@ init:
 - if "%PLATFORM%"=="x64" SET CACHE_FOLDER=C:\BAR
 
 cache: $(CACHE_FOLDER)
-
-build:
-  verbosity: minimal
