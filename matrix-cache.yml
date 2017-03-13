@@ -9,8 +9,8 @@ build_script:
 - mkdir %CACHE_FOLDER% & copy src %CACHE_FOLDER%
 
 init:
-- if "%PLATFORM%"=="x86" SET CACHE_FOLDER = C:\FOO
-- if "%PLATFORM%"=="x64" SET CACHE_FOLDER = C:\BAR
+- if "%PLATFORM%"=="x86" SET CACHE_FOLDER=C:\FOO
+- if "%PLATFORM%"=="x64" SET CACHE_FOLDER=C:\BAR
 
 cache: $(CACHE_FOLDER)
 
