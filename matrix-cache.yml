@@ -1,5 +1,8 @@
 version: 1.22.{build}
 
+init:
+- ps: write-host "attach d"; sleep 30
+
 platform:
 - x86
 - x64
