@@ -1,8 +1,5 @@
 version: 1.22.{build}
 
-init:
-- ps: write-host "attach d"; sleep 30
-
 platform:
 - x86
 - x64
@@ -12,6 +9,7 @@ build_script:
 - mkdir %CACHE_FOLDER% & copy src %CACHE_FOLDER%
 
 init:
+- ps: write-host "attach d"; sleep 30
 - if "%PLATFORM%"=="x86" SET CACHE_FOLDER=C:\FOO
 - if "%PLATFORM%"=="x64" SET CACHE_FOLDER=C:\BAR
 
