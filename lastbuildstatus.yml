@@ -1,0 +1,16 @@
+version: 1.22.{build}
+
+environment:
+  API_TOKEN:
+    secure: YIuqOcciVmoaQJhMWRoknEDuDMTUJ+oMnHCXQmBlgv4=
+
+init:
+- ps: |    
+    $headers = @{
+      "Authorization" = "Bearer $env:API_TOKEN"
+      "Content-type" = "application/json"
+    }
+
+    $history = Invoke-RestMethod -Uri 'https://ci.appveyor.com/api/projects/IlyaFinkelshteyn/projecta/history?recordsNumber=2' -Headers $headers -Method GET
+    $history.builds[1].version
+    $history.builds[1].status
