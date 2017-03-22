@@ -12,5 +12,6 @@ init:
     }
 
     $history = Invoke-RestMethod -Uri 'https://ci.appveyor.com/api/projects/IlyaFinkelshteyn/projecta/history?recordsNumber=2' -Headers $headers -Method GET
+    if ($history.builds.Count -lt 2000000000) {Write-Host "Not enough history"; return}
     $history.builds[1].version
     $history.builds[1].status
