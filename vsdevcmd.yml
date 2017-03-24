@@ -1,6 +1,7 @@
 version: 1.22.{build}
 image: Visual Studio 2017
 build_script:
-- set | findstr /psi "2017"
-- "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat"
-- set | findstr /psi "2017"
+- cmd: |
+    set | findstr /psi "2017"
+    "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat"
+    set | findstr /psi "2017"
