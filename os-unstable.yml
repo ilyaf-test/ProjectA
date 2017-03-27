@@ -1,0 +1,4 @@
+version: 1.22.{build}
+os: unstable
+build_script:
+- ps: write-host $env:APPVEYOR_BUILD_WORKER_IMAGE
