@@ -1,5 +1,4 @@
 version: 1.22.{build}
-\\\
 image: Visual Studio 2015
 test_script:
 - chcp 65001
