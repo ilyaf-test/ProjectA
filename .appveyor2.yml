@@ -6,7 +6,7 @@ build:
 on_finish:
 - cmd: echo my nodot onfin call
 
-#comment to make a pr2
+#comment to make a pr3
   
 #configuration: Release
 #services:
