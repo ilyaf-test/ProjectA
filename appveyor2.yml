@@ -1,4 +1,4 @@
-version: {build}
+version: 1.0.{build}
 image: Visual Studio 2017 RC
 before_build:
 - ps: write-host "my dot a script"
