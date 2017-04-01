@@ -1,15 +1,15 @@
 version: 1.22.{build}
-image:
-- Visual Studio 2015
-- Visual Studio 2017
+configuration:
+- Debug
+- Release
 init:
-- ps: IF (($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2017") -and ($env:GYP_MSVS_VERSION -eq "2013")) {throw}
+- ps: IF (($env:CONFIGURATION -eq "Debug") -and ($env:GYP_MSVS_VERSION -eq "2013")) {throw}
 environment:
   matrix:
   - GYP_MSVS_VERSION: 2013
   - GYP_MSVS_VERSION: 2017
 matrix:
   allow_failures:
-    - image: Visual Studio 2017
+    - configuration: Debug
       GYP_MSVS_VERSION: 2013
 build: off
