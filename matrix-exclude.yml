@@ -10,6 +10,6 @@ environment:
   - GYP_MSVS_VERSION: 2017
 matrix:
   allow_failures:
-    - image: Visual Studio 2017 RC
+    - image: Visual Studio 2017
       GYP_MSVS_VERSION: 2013
 build: off
