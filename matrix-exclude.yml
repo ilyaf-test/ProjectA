@@ -9,7 +9,10 @@ environment:
   - GYP_MSVS_VERSION: 2013
   - GYP_MSVS_VERSION: 2017
 matrix:
-  allow_failures:
+  exclude:
     - configuration: Debug
       GYP_MSVS_VERSION: 2013
+#  allow_failures:
+#    - configuration: Debug
+#      GYP_MSVS_VERSION: 2013
 build: off
