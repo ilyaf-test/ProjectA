@@ -45,5 +45,17 @@ matrix:
       
     - image: Visual Studio 2017
       compiler: msys2-mingw
-
+      
+    - image: Visual Studio 2015
+      arch: x64
+      compiler: msvc2010      
+      
+    - image: Visual Studio 2015
+      arch: x64
+      compiler: msvc2015
+      
+    - image: Visual Studio 2015
+      arch: x64
+      compiler: msvc2017
+      
 build: off
