@@ -6,12 +6,12 @@ init:
 - ps: IF (($env:CONFIGURATION -eq "Debug") -and ($env:GYP_MSVS_VERSION -eq "2013")) {throw}
 environment:
   matrix:
-  - GYP_MSVS_VERSION: 2013
-  - GYP_MSVS_VERSION: 2017
+  - MY_VAR: A
+  - MY_VAR: B
 matrix:
   exclude:
     - configuration: Debug
-      GYP_MSVS_VERSION: 2013
+      MY_VAR: B
 #  allow_failures:
 #    - configuration: Debug
 #      GYP_MSVS_VERSION: 2013
