@@ -1,0 +1,27 @@
+-
+    version: 1.0.{build}
+    clone_script:
+      - cmd: echo "DO NOT skipunittests"
+
+    build_script: off
+
+    only_commits:
+      message: /skipunittests/  
+
+-
+    version: 1.0.{build}
+    clone_script:
+       - cmd: echo "DO skipunittests and DO MATRIX"
+
+    build_script: off
+
+    environment:
+      matrix:
+      - FixtureList: FixtureListQAC1.txt
+      - FixtureList: FixtureListQAC2.txt
+      - FixtureList: FixtureListQAC3.txt
+      - FixtureList: FixtureListQAC4.txt
+      - FixtureList: FixtureListQAC5.txt
+
+    skip_commits:
+      message: /skipunittests/
