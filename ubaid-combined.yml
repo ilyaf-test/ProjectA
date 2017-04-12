@@ -3,7 +3,7 @@
     clone_script:
       - cmd: echo "DO NOT skipunittests"
 
-    build_script: off
+    build: off
 
     only_commits:
       message: /skipunittests/  
@@ -13,7 +13,7 @@
     clone_script:
        - cmd: echo "DO skipunittests and DO MATRIX"
 
-    build_script: off
+    build: off
 
     environment:
       matrix:
