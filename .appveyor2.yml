@@ -6,6 +6,13 @@ build:
 on_finish:
 - cmd: echo my nodot onfin call
 
+on_success:
+  - ps: |
+  if ($true)
+  {
+    Write-Host "Success"
+  }
+
 #comment to make a pr2
   
 #configuration: Release
