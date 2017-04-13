@@ -1,7 +1,8 @@
 version: 1.10.{build}
 environment:
-  my_var:
-    secure: PDuDFXR97swbDu9DWD4+ww==
+  global: 
+    my_var:
+      secure: PDuDFXR97swbDu9DWD4+ww==
 build_script:
 - cmd: echo %my_var%
 
