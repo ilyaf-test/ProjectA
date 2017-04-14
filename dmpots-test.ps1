@@ -33,8 +33,10 @@ function Get-TaefResults($logfile) {
 }
 
 function Invoke-AppveyorTestsRestMethod($appveyorTests) {
-    $uri = $env:APPVEYOR_API_URL + "/api/tests/batch"
-    $json = ConvertTo-Json $appveyorTests
+    #$uri = $env:APPVEYOR_API_URL + "/api/tests/batch"
+    $uri = $env:APPVEYOR_API_URL + "/api/tests"
+    #$json = ConvertTo-Json $appveyorTests
+    $json = ConvertTo-Json $appveyorTests[0]
     Invoke-RestMethod -Uri $uri -Method Put -Body $json -ContentType "application/json"
 }
 
