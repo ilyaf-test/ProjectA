@@ -37,7 +37,7 @@ function Invoke-AppveyorTestsRestMethod($appveyorTests) {
     #$uri = $env:APPVEYOR_API_URL + "/api/tests"
     $json = ConvertTo-Json $appveyorTests
     #$json = ConvertTo-Json $appveyorTests[0]
-    Invoke-RestMethod -Uri $uri -Method Put -Body $json -ContentType "application/json"
+    Invoke-RestMethod -Uri $uri -Method Post -Body $json -ContentType "application/json"
 }
 
 # function Invoke-TE($logfile) {
