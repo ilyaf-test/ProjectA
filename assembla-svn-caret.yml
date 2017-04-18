@@ -1,0 +1,9 @@
+version: 1.10.{build}
+clone_script:
+- cmd: svn co https://subversion.assembla.com/svn/ilyafinkelshteyn^^ilyafinkelshteyn-first-space/ --username "%usr%" --password "%pwd%" --non-interactive --trust-server-cert
+environment:
+  usr:
+    secure: mJAtDnmx4dua2nkfHexgLlf8vjSHDnpFCC+CQ1sjS5k=
+  pwd:
+    secure: I6a1wB5GthQN1VvXewmIAg==
+build: off
