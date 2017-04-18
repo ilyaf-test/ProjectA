@@ -1,0 +1,66 @@
+version: 1.10.{build}
+build_script:
+- ps: if($env:PYTHON_VERSION -eq "2.7.x" -and $env:PYTHON_ARCH -eq "64") {throw}
+
+environment:
+  matrix:
+      # 32-bit Python.
+    - PYTHON: "C:\\Python27"
+      PYTHON_VERSION: "2.7.x"
+      PYTHON_ARCH: "32"
+    - PYTHON: "C:\\Python32"
+      PYTHON_VERSION: "3.2.x"
+      PYTHON_ARCH: "32"
+    - PYTHON: "C:\\Python33"
+      PYTHON_VERSION: "3.3.x"
+      PYTHON_ARCH: "32"
+    - PYTHON: "C:\\Python34"
+      PYTHON_VERSION: "3.4.x"
+      PYTHON_ARCH: "32"
+    - PYTHON: "C:\\Python35"
+      PYTHON_VERISON: "3.5.x"
+      PYTHON_ARCH: "32"
+    - PYTHON: "C:\\Python36"
+      PYTHON_VERISON: "3.6.x"
+      PYTHON_ARCH: "32"
+
+      # 64-bit Python.
+    - PYTHON: "C:\\Python27-x64"
+      PYTHON_VERSION: "2.7.x"
+      PYTHON_ARCH: "64"
+    - PYTHON: "C:\\Python32-x64"
+      PYTHON_VERSION: "3.2.x"
+      PYTHON_ARCH: "64"
+    - PYTHON: "C:\\Python33-x64"
+      PYTHON_VERSION: "3.3.x"
+      PYTHON_ARCH: "64"
+    - PYTHON: "C:\\Python34-x64"
+      PYTHON_VERSION: "3.4.x"
+      PYTHON_ARCH: "64"
+    - PYTHON: "C:\\Python35-x64"
+      PYTHON_VERISON: "3.5.x"
+      PYTHON_ARCH: "64"
+    - PYTHON: "C:\\Python36-x64"
+      PYTHON_VERISON: "3.6.x"
+      PYTHON_ARCH: "64"
+
+matrix:
+    allow_failures:
+      - PYTHON: "C:\\Python32"
+        PYTHON_VERSION: "3.2.x"
+        PYTHON_ARCH: "32"
+      - PYTHON: "C:\\Python33"
+        PYTHON_VERSION: "3.3.x"
+        PYTHON_ARCH: "32"
+      - PYTHON: "C:\\Python34"
+        PYTHON_VERSION: "3.4.x"
+        PYTHON_ARCH: "32"
+      - PYTHON: "C:\\Python32-x64"
+        PYTHON_VERSION: "3.2.x"
+        PYTHON_ARCH: "64"
+      - PYTHON: "C:\\Python33-x64"
+        PYTHON_VERSION: "3.3.x"
+        PYTHON_ARCH: "64"  
+      - PYTHON: "C:\\Python34-x64"
+        PYTHON_VERSION: "3.4.x"
+        PYTHON_ARCH: "64"
