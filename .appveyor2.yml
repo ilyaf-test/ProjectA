@@ -7,7 +7,7 @@ build_script:
 - cmd: echo %my_var%
 
 
-#comment to force build 2
+# PR1
   
 #configuration: Release
 #services:
