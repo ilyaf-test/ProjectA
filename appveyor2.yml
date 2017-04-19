@@ -7,7 +7,8 @@ build:
 on_finish:
 - cmd: echo my dot onfin call
 
-  
+#force build
+
 #configuration: Release
 #services:
 #  - mssql2012sp1
