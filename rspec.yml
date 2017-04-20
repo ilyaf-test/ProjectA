@@ -7,10 +7,12 @@ install:
   # Set up our PATH
   #- set PATH="C:\Ruby%RUBY_VERSION%\bin";"C:\Program Files\Git\mingw64\bin";C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw32\bin;"C:\Program Files (x86)\Inno Setup 5";%PATH%
   # Install InnoSetup
+  
   - choco install -y InnoSetup
   # This decrypts cert/cert password
   - nuget install secure-file -ExcludeVersion
   # Install Ruby Dependencies
+  - set PATH=C:\Ruby23\bin;%PATH%
   - gem install bundler
   - gem install mime-types-data -v '3.2016.0521'
   - bundle install
