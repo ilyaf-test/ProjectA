@@ -1,0 +1,24 @@
+version: 1.33.{version}
+
+
+install:
+  # Set up our PATH
+  - set PATH="C:\Ruby%RUBY_VERSION%\bin";"C:\Program Files\Git\mingw64\bin";C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw32\bin;"C:\Program Files (x86)\Inno Setup 5";%PATH%
+  # Install InnoSetup
+  - choco install -y InnoSetup
+  # This decrypts cert/cert password
+  - nuget install secure-file -ExcludeVersion
+  # Install Ruby Dependencies
+  - gem install bundler
+  - gem install mime-types-data -v '3.2016.0521'
+  - bundle install
+
+build: off
+
+before_test:
+  - ruby -v
+  - gem -v
+  - bundle -v
+
+test_script:
+  - bundle exec rspec --color --pattern test\integration\default\serverspec\*\*_spec.rb
