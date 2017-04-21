@@ -41,6 +41,7 @@ before_test:
   - bundle show rspec
   - echo %PATH%
   - which rspec
+  - dir c:\Ruby23\bin\rsp*
   - where rspec*
 
 test_script:
