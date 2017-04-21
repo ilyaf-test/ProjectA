@@ -41,6 +41,7 @@ before_test:
   - bundle show rspec
   - echo %PATH%
   - which rspec
+  - where rspec
 
 test_script:
   - bundle exec rspec --color --pattern test\integration\default\serverspec\*\*_spec.rb
