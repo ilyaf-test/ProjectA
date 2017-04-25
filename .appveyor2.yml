@@ -6,6 +6,13 @@ environment:
 build_script:
 - cmd: echo %my_var%
 
+notifications:
+- provider: Email
+  to:
+  - ilya_f@hotmail.com
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: false
 
 # PR1
   
