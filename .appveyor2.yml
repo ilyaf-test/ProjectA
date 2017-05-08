@@ -11,7 +11,7 @@ notifications:
   to:
   - ilya_f@hotmail.com
 
-# Change to trigger bld
+# Change to trigger PR
   
 #configuration: Release
 #services:
