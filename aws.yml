@@ -10,4 +10,5 @@ deploy:
     secure: EXGA81VL+EleD/PAic9ul9l4cqLMgJevFm7bxR3SWVD8+zVICS7AXum3CIyVP+9G
   region: us-west-2
   bucket: ilyaftest
+  folder:
   artifact: ProjectA
