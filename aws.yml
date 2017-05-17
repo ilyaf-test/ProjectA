@@ -1,0 +1,13 @@
+version: 1.10.{build}
+build: off
+artifacts:
+- path: src\ProjectA
+  name: ProjectA
+deploy:
+- provider: S3
+  access_key_id: AKIAJR4X4OMAI3GO42KA
+  secret_access_key:
+    secure: EXGA81VL+EleD/PAic9ul9l4cqLMgJevFm7bxR3SWVD8+zVICS7AXum3CIyVP+9G
+  region: us-west-2
+  bucket: ilyaftest
+  artifact: ProjectA
