@@ -1,7 +1,7 @@
 version: 1.10.{build}
 build: off
-environment:
-  APPVEYOR_BUILD_WORKER_CLOUD: GCE
+#environment:
+ # APPVEYOR_BUILD_WORKER_CLOUD: GCE
 install:
   - dir|find "bytes free"
   
