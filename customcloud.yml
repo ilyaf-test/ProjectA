@@ -3,6 +3,5 @@ build: off
 environment:
   APPVEYOR_BUILD_WORKER_CLOUD: GCE
 install:
-  - ipconfig
-  - hostname
+  - dir|find "bytes free"
   
