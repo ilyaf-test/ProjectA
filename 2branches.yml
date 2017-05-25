@@ -2,6 +2,8 @@
   branches:
     only:
       - fix1
+  
+  version: 1.fix1.{build}
 
   build_script:
     - echo %appveyor_repo_branch%
@@ -11,5 +13,7 @@
     only:
       - fix2
 
+  version: 1.fix2.{build}
+  
   build_script:
     - echo %appveyor_repo_branch%
