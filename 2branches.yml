@@ -1,0 +1,15 @@
+-
+  branches:
+    only:
+      - fix1
+
+  build_script:
+    - echo %appveyor_repo_branch%
+
+-
+  branches:
+    only:
+      - fix2
+
+  build_script:
+    - echo %appveyor_repo_branch%
