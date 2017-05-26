@@ -11,7 +11,7 @@ notifications:
   to:
   - ilya_f@hotmail.com
 
-# Change to trigger PR from fix2
+# Change to trigger scheduled build
   
 #configuration: Release
 #services:
