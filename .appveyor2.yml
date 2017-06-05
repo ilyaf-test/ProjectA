@@ -11,7 +11,7 @@ notifications:
   to:
   - ilya_f@hotmail.com
 
-# Change to trigger skip_ci
+# Change to trigger skip ci
   
 #configuration: Release
 #services:
