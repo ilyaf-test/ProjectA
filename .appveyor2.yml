@@ -5,6 +5,7 @@ environment:
       secure: PDuDFXR97swbDu9DWD4+ww==
 build_script:
 - cmd: echo %my_var%
+- cmd: echo %my_var2%
 
 notifications:
 - provider: Email
