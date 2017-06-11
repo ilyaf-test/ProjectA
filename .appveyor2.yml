@@ -1,4 +1,3 @@
-version: 1.10.{build}
 environment:
   global: 
     my_var:
