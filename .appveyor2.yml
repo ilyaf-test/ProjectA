@@ -11,7 +11,7 @@ notifications:
   to:
   - ilya_f@hotmail.com
 
-# Change to trigger
+# Change to trigger 1
   
 #configuration: Release
 #services:
