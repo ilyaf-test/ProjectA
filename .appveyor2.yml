@@ -11,7 +11,7 @@ notifications:
   to:
   - ilya_f@hotmail.com
 
-# Change to trigger pr
+# Change to trigger change inside PR branch
   
 #configuration: Release
 #services:
