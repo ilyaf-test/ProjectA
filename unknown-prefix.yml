@@ -1,4 +1,0 @@
-install:
-  - echo "before"
-  - foo: bar
-  - echo "after"
