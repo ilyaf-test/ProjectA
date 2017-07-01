@@ -1,8 +1,0 @@
-version: 1.21.{build}
-build_cloud: azure-cloud-1
-image: Visual Studio 2015
-clone_depth: 1
-build_script:
-- whoami
-- ipconfig
-test: off

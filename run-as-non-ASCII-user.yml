@@ -1,8 +1,0 @@
-version: 1.22.{build}
-image: Visual Studio 2015
-test_script:
-- chcp 65001
-- net user илья password@12 /add
-- net localgroup administrators илья /add
-- psexec \\localhost -u илья -p password@12 -accepteula C:\\projects\\projectA\\run-as-non-ASCII-user.cmd
-- net users

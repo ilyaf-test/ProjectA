@@ -1,6 +1,0 @@
-environment:
-  global: 
-    my_var:
-      secure: PDuDFXR97swbDu9DWD4+ww==
-build_script:
-- cmd: echo %my_var%
