@@ -3,6 +3,6 @@ environment:
     my_var:
       secure: PDuDFXR97swbDu9DWD4+ww==
 build_script:
-- 'appveyor downloadfile "https://ci.appveyor.com/api/projects/analogdevicesinc/scopy-mingw-build-deps/artifacts/scopy-mingw32-build-deps.tar.xz?branch=master&job=Environment: MINGW_VERSION=mingw32, ARCH=i686"'
+- 'appveyor downloadfile "https://ci.appveyor.com/api/projects/analogdevicesinc/scopy-mingw-build-deps/artifacts/scopy-mingw32-build-deps.tar.xz?branch=master&job=Environment: MINGW_VERSION=mingw32, ARCH=i686" -FIleName bla.zip'
 
 
