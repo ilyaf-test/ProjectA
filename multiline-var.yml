@@ -1,10 +1,6 @@
 version: 99.88.{build}
 install:
 - ps: $env:test = "line1 `nline2"
-- ps: write-host "install1:`n$env:test"
+- ps: write-host "before cmd:`n$env:test"
 - echo something
-- ps: write-host "install2:`n$env:test"
-build_script:
-- ps: write-host "build:`n$env:test"
-deploy_script:
-- ps: write-host "deploy:`n$env:test"
+- ps: write-host "after cmd:`n$env:test"
