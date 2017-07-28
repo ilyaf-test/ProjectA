@@ -1,0 +1,8 @@
+version: 99.88.{build}
+install:
+- ps: $env:test = "line1 `nline2"
+- ps: write-host "install:`n$env:test"
+build_script:
+- ps: write-host "build:`n$env:test"
+deploy_script:
+- ps: write-host "deploy:`n$env:test"
