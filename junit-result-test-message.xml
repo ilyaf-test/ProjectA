@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="nosetests" tests="312" errors="17" failures="0" skip="1">
+  <testcase classname="Messagetest" name="MessageAndType-error" time="0.000">
+    <error message="MyMessage" type="MyType"/>      
+  </testcase>
+  <testcase classname="Messagetest" name="MessageNoType-error" time="0.000">
+    <error message="MyMessage"/>      
+  </testcase>
+  <testcase classname="Messagetest" name="TypeNoMessage-error" time="0.000">
+    <error type="MyType"/>      
+  </testcase>
+  <testcase classname="Messagetest" name="MessageAndType-failure" time="0.000">
+    <failure message="MyMessage" type="MyType"/>      
+  </testcase>
+  <testcase classname="Messagetest" name="MessageNoType-failure" time="0.000">
+    <failure message="MyMessage"/>      
+  </testcase>
+  <testcase classname="Messagetest" name="TypeNoMessage-failure" time="0.000">
+    <failure type="MyType"/>      
+  </testcase>
+  
+</testsuite>
