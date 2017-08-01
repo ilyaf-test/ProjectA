@@ -6,18 +6,20 @@ install:
 - nuget | findstr /psi "version"
 
 - ps: write-host "before vs command prompt:"
-- where msbuild.exe
+- ps: $env:Path -split ';' | findstr /psi "msbuild"; cmd /c where msbuild.exe
 
 - ps: write-host "calling vs command prompt:"
 - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat" 
 
 - ps: write-host "after vs command prompt:"
-- where msbuild.exe
+- ps: $env:Path -split ';' | findstr /psi "msbuild"; cmd /c where msbuild.exe
 
 # workaround
-- ps: write-host "after vs command prompt:"
+- ps: write-host "applying workaround:"
+- ps: $env:Path = ([System.String]::Join(";", ($env:Path -split ";" | select-string "^(?!.*\\\\MSBuild).*")))
+- ps: $env:Path = ([System.String]::Join(";", ($env:Path -split ";" | select-string "^(?!.*\\MSBuild\\15.0\\bin\\Roslyn).*")))
 - ps: $env:Path = ([System.String]::Join(";", ($env:Path -split ";" | select-string "^(?!.*v4\.0\.30319).*")))
-- where msbuild.exe
+- ps: $env:Path -split ';' | findstr /psi "msbuild"; cmd /c where msbuild.exe
 
 - nuget restore src\ProjectA.sln -verbosity detailed
       
