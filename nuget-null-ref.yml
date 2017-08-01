@@ -19,7 +19,7 @@ install:
 # - ps: $env:Path = ([System.String]::Join(";", ($env:Path -split ";" | select-string "^(?!.*v4\.0\.30319).*")))
 # - where msbuild.exe
 
-- ps: nuget restore -verbosity detailed
+- nuget restore src\ProjectA.sln -verbosity detailed
       
 build: off
 test: off
