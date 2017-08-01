@@ -15,9 +15,9 @@ install:
 - where msbuild.exe
 
 # workaround
-# - ps: write-host "after vs command prompt:"
-# - ps: $env:Path = ([System.String]::Join(";", ($env:Path -split ";" | select-string "^(?!.*v4\.0\.30319).*")))
-# - where msbuild.exe
+- ps: write-host "after vs command prompt:"
+- ps: $env:Path = ([System.String]::Join(";", ($env:Path -split ";" | select-string "^(?!.*v4\.0\.30319).*")))
+- where msbuild.exe
 
 - nuget restore src\ProjectA.sln -verbosity detailed
       
