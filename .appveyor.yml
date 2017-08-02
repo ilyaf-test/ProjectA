@@ -5,8 +5,9 @@ environment:
 build_script:
 - 'appveyor downloadfile "https://ci.appveyor.com/api/projects/analogdevicesinc/scopy-mingw-build-deps/artifacts/scopy-mingw32-build-deps.tar.xz?branch=master&job=Environment: MINGW_VERSION=mingw32, ARCH=i686" -FIleName bla.zip'
 
- notifications:
-   email:
-     recipients:
-       - cryptopp-build@googlegroups.com
-     
+notifications:
+  email:
+    recipients:
+      - cryptopp-build@googlegroups.com
+    on_success: always # default: change
+    on_failure: always # default: always
