@@ -3,7 +3,13 @@ environment:
     my_var:
       secure: PDuDFXR97swbDu9DWD4+ww==
 build_script:
-- 'appveyor downloadfile "https://ci.appveyor.com/api/projects/analogdevicesinc/scopy-mingw-build-deps/artifacts/scopy-mingw32-build-deps.tar.xz?branch=master&job=Environment: MINGW_VERSION=mingw32, ARCH=i686" -FIleName bla.zip'
+- cmd: |
+    echo %APPVEYOR_REPO_BRANCH%
+    cd %appveyor_build_folder%
+    IF %APPVEYOR_REPO_BRANCH%==development npm run build:dev
+    IF %APPVEYOR_REPO_BRANCH%==devops npm run build:devops
+    IF %APPVEYOR_REPO_BRANCH%==qa npm run build:qa
+    IF %APPVEYOR_REPO_BRANCH%==master npm run build:prod
 
 notifications:
     - provider: Email
