@@ -11,7 +11,7 @@ notifications:
   to:
   - ilya_f@hotmail.com
 
-# Change to trigger PR
+# Change to test
   
 #configuration: Release
 #services:
