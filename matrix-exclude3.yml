@@ -1,0 +1,18 @@
+version: 33.464.{build}
+image:
+- Visual Studio 2015
+- Visual Studio 2017
+platform:
+- x64
+- x86
+init:
+- cmd: echo %appveyor_build_worker_image%
+environment:
+  matrix:
+  - TOOLSET: v140
+    ToolsVersion: 14.0
+  - TOOLSET: v100
+    ToolsVersion: 4.0
+build: off
+test: off
+  
