@@ -13,6 +13,16 @@ environment:
     ToolsVersion: 14.0
   - TOOLSET: v100
     ToolsVersion: 4.0
+matrix:
+  exclude:
+    - image: Studio 2015
+      TOOLSET: v100
+      ToolsVersion: 4.0
+   - image: Studio 2013
+      TOOLSET: v140
+      ToolsVersion: 14.0
+
+
 build: off
 test: off
   
