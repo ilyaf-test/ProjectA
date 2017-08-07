@@ -24,7 +24,7 @@ for:
       - lomaster
   environment:
     matrix:
-      - a: a5
-        b: b5
-      - a: a6
-        b: b6
+      - la: a5
+        lb: b5
+      - la: a6
+        lb: b6
