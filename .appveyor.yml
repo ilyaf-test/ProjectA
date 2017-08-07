@@ -1,15 +1,4 @@
-environment:
-  global: 
-    my_var:
-      secure: PDuDFXR97swbDu9DWD4+ww==
-build_script:
-- cmd: |
-    echo %APPVEYOR_REPO_BRANCH%
-    cd %appveyor_build_folder%
-    IF %APPVEYOR_REPO_BRANCH%==development npm run build:dev
-    IF %APPVEYOR_REPO_BRANCH%==devops npm run build:devops
-    IF %APPVEYOR_REPO_BRANCH%==qa npm run build:qa
-    IF %APPVEYOR_REPO_BRANCH%==master npm run build:prod
+build: off
 
 notifications:
     - provider: Email
