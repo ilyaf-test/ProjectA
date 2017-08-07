@@ -1,0 +1,30 @@
+environment:
+  matrix:
+  - a: a1
+    b: b1
+  - a: a2
+    b: b2
+build: off
+
+for:
+-
+  branches:
+    only:
+      - master
+  environment:
+    matrix:
+      - a: a3
+        b: b3
+      - a: a4
+        b: b4
+
+-
+  branches:
+    only:
+      - lomaster
+  environment:
+    matrix:
+      - a: a5
+        b: b5
+      - a: a6
+        b: b6
