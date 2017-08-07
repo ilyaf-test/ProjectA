@@ -1,8 +1,9 @@
 build: off
 
 notifications:
-    - provider: Email
-      to:
-        - ilya_f@hotmail.com
-      on_build_success: true
-      on_build_failure: true
+- provider: Email
+  to:
+  - ilya_f@hotmail.com
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
