@@ -1,2 +1,2 @@
-write-host $env:MyVar
-$env:MyVar = "bar2"
+write-host "bar"
+cmd /c "ping mail.ru"
