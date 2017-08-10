@@ -1,0 +1,14 @@
+-
+  branches:
+    only:
+      - master
+
+  build_script: 
+    - echo m1
+-
+  branches:
+    only:
+      - master
+
+  build_script: 
+    - echo m2
