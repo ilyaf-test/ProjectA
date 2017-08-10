@@ -11,7 +11,7 @@ notifications:
   to:
   - ilya_f@hotmail.com
 
-# Change to trigger build dqw
+# Change to trigger pr 5r5er
   
 #configuration: Release
 #services:
