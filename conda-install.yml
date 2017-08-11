@@ -11,7 +11,7 @@ install:
   #- anaconda search -t conda arch
   
   #- conda list
-  - conda install --channel https://anaconda.org/bashtage arch
+  - conda install --channel https://anaconda.org/bashtage/arch arch
   
   - conda config --set always_yes yes --set changeps1 no 
   - conda update -q conda 
