@@ -1,7 +1,7 @@
 environment: 
   matrix: 
     - PYTHON_VERSION: 3.4 
-      MINICONDA: C:\Miniconda35
+      MINICONDA: C:\Miniconda36
 init:
   - "ECHO %PYTHON_VERSION% %MINICONDA%"
 install: 
