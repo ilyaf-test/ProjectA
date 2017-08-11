@@ -7,7 +7,7 @@ init:
 install: 
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%" 
   
-  - conda channels
+  - conda list
   - conda install -c bashtage arch
   
   - conda config --set always_yes yes --set changeps1 no 
