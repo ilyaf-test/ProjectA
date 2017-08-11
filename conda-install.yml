@@ -5,7 +5,10 @@ environment:
 init:
   - "ECHO %PYTHON_VERSION% %MINICONDA%"
 install: 
-  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%" 
+  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+  
+  - conda install anaconda-client
+  - anaconda search -t conda arch
   
   - conda list
   - conda install -c bashtage arch
