@@ -9,5 +9,6 @@ install:
   - conda config --set always_yes yes --set changeps1 no 
   - conda update -q conda 
   - conda info -a 
-  - conda config --add channels bashtage 
-  - conda install arch 
+  # - conda config --add channels bashtage 
+  #- conda install arch 
+  - conda install -c bashtage arch
