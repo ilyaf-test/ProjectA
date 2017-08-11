@@ -1,0 +1,13 @@
+environment: 
+  matrix: 
+    - PYTHON_VERSION: 3.4 
+      MINICONDA: C:\Miniconda3
+init: 
+  - "ECHO %PYTHON_VERSION% %MINICONDA%"
+install: 
+  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%" 
+  - conda config --set always_yes yes --set changeps1 no 
+  - conda update -q conda 
+  - conda info -a 
+  - conda config --add channels bashtage 
+  - conda install arch 
