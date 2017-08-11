@@ -1,22 +1,14 @@
 environment: 
   matrix: 
     - PYTHON_VERSION: 3.4 
-      MINICONDA: C:\Miniconda3-x64
+      MINICONDA: C:\Miniconda36-x64
 init:
   - "ECHO %PYTHON_VERSION% %MINICONDA%"
 install: 
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
-  
-  #- conda install anaconda-client
-  #- anaconda search -t conda arch
-  - conda install -c bashtage arch
-  
-  #- conda list
-  #- conda install --channel https://anaconda.org/bashtage/arch arch
-  
   - conda config --set always_yes yes --set changeps1 no 
   - conda update -q conda 
   - conda info -a 
-  # - conda config --add channels bashtage 
-  #- conda install arch 
-  - conda install -c bashtage arch
+  - conda config --add channels bashtage 
+  - conda install arch -y
+  #- conda install -c bashtage arch -y
