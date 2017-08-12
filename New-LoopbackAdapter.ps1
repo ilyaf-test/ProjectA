@@ -55,11 +55,11 @@ Start-Transcript -path .\$strFilenameTranscript | Out-Null
 $error.clear()
 
 # Detect correct OS here and exit if no match (we intentionally truncate the last character to account for service packs)
-if ((Get-WMIObject win32_OperatingSystem).Version -notmatch '6.1.760'){
-	Write-Host "`nThis script requires a version of Windows Server 2008 R2, which this is not. Exiting...`n" -ForegroundColor Red
-	Stop-Transcript
-	Exit
-} #end OS detection
+#if ((Get-WMIObject win32_OperatingSystem).Version -notmatch '6.1.760'){
+#	Write-Host "`nThis script requires a version of Windows Server 2008 R2, which this is not. Exiting...`n" -ForegroundColor Red
+#	Stop-Transcript
+#	Exit
+#} #end OS detection
 Clear-Host
 pushd
 [string] $TargetFolder = $env:temp
