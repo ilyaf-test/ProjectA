@@ -1,7 +1,7 @@
 environment:
   API_TOKEN:
     secure: YIuqOcciVmoaQJhMWRoknEDuDMTUJ+oMnHCXQmBlgv4=
-test_script:
+init:
 - ps: |
     $headers = @{
       "Authorization" = "Bearer $env:API_TOKEN"
