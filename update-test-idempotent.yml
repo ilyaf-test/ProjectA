@@ -1,0 +1,33 @@
+environment:
+  API_TOKEN:
+    secure: YIuqOcciVmoaQJhMWRoknEDuDMTUJ+oMnHCXQmBlgv4=
+test_script:
+- ps: |
+    $headers = @{
+      "Authorization" = "Bearer $env:API_TOKEN"
+      "Content-type" = "application/json"
+    }
+    
+    Add-AppveyorTest -Name Test1 -Framework mstest -FileName Test1.dll -Outcome Failed -Duration 1 -ErrorMessage ErrMess1
+
+    #update test and make it failed again
+    Update-AppveyorTest -Name Test1 -Framework mstest -FileName Test1.dll -Outcome Failed -Duration 1 -ErrorMessage ErrMess1
+
+    sleep 5 # let data submitted by worker to cashe to appear in DB
+
+    $currentBuild=Invoke-RestMethod -Uri "https://ci.appveyor.com/api/projects/$env:APPVEYOR_ACCOUNT_NAME/$env:APPVEYOR_PROJECT_SLUG/build/$env:APPVEYOR_BUILD_VERSION" -Headers $headers  -Method Get
+    $failedTestsCount = $currentBuild.build.jobs[0].failedTestsCount
+    if ($failedTestsCount -ne 1) {$testFailures += @("failedTestsCount: $failedTestsCount, expected: 1")}
+
+    #update test and make it passed
+    Update-AppveyorTest -Name Test1 -Framework mstest -FileName Test1.dll -Outcome Passed -Duration 1 -ErrorMessage ErrMess1
+    sleep 5 # let data submitted by worker to cashe to appear in DB
+    $currentBuild=Invoke-RestMethod -Uri "https://ci.appveyor.com/api/projects/$env:APPVEYOR_ACCOUNT_NAME/$env:APPVEYOR_PROJECT_SLUG/build/$env:APPVEYOR_BUILD_VERSION" -Headers $headers  -Method Get
+    $failedTestsCount = $currentBuild.build.jobs[0].failedTestsCount
+    $passedTestsCount = $currentBuild.build.jobs[0].passedTestsCount
+    if ($failedTestsCount -ne 0) {$testFailures += @("failedTestsCount: $failedTestsCount, expected: 0")}
+
+    if ($testFailures -ne $null) {
+    $testFailures | ForEach-Object {Write-Warning $_}
+    throw
+    }
